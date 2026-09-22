@@ -1,0 +1,1 @@
+ALTER TABLE `agreement_acceptances` ADD `signature_drawing` text;

@@ -1,0 +1,3104 @@
+{
+  "Gallery view": [
+    "圖庫模式",
+    "Galerieansicht",
+    "Vue galerie",
+    "ギャラリー表示"
+  ],
+  "Task gallery. Use arrow keys to browse and Enter to open a task.": [
+    "任務圖庫。使用方向鍵瀏覽，按 Enter 開啟任務。",
+    "Aufgabengalerie. Mit Pfeiltasten blättern und mit Enter öffnen.",
+    "Galerie des demandes. Utilisez les flèches pour parcourir et Entrée pour ouvrir.",
+    "タスクギャラリー。矢印キーで移動し、Enterで開きます。"
+  ],
+  "You have {available} available. This request needs {required}. Give time to earn more credit.": [
+    "可用時間為 {available}。此請求需要 {required}。請先幫助他人賺取時間。",
+    "Du hast {available} verfügbar. Diese Anfrage benötigt {required}. Hilf anderen, um Zeit zu verdienen.",
+    "Vous disposez de {available}. Cette demande nécessite {required}. Aidez les autres pour gagner du temps.",
+    "利用可能な時間は{available}です。この依頼には{required}が必要です。他の人を手伝って時間を獲得してください。"
+  ],
+  "Country / territory": [
+    "國家／地區",
+    "Land / Gebiet",
+    "Pays / territoire",
+    "国・地域"
+  ],
+  "Choose a country": [
+    "選擇國家／地區",
+    "Land auswählen",
+    "Choisir un pays",
+    "国・地域を選択"
+  ],
+  "State / region": [
+    "州／地區",
+    "Bundesland / Region",
+    "État / région",
+    "都道府県・地域"
+  ],
+  "Choose a region": [
+    "選擇地區",
+    "Region auswählen",
+    "Choisir une région",
+    "地域を選択"
+  ],
+  "City / community": [
+    "城市／社區",
+    "Stadt / Gemeinde",
+    "Ville / commune",
+    "市区町村"
+  ],
+  "Choose a community": [
+    "選擇社區",
+    "Gemeinde auswählen",
+    "Choisir une commune",
+    "市区町村を選択"
+  ],
+  "Choose your country, region and community.": [
+    "請選擇國家、地區和社區。",
+    "Wähle Land, Region und Gemeinde.",
+    "Choisissez votre pays, région et commune.",
+    "国、地域、市区町村を選択してください。"
+  ],
+  "Spiral view": [
+    "螺旋卡片",
+    "Spiralansicht",
+    "Vue en spirale",
+    "スパイラル表示"
+  ],
+  "List view": [
+    "列表",
+    "Listenansicht",
+    "Vue en liste",
+    "リスト表示"
+  ],
+  "Pause animation": [
+    "暫停動畫",
+    "Animation pausieren",
+    "Mettre en pause",
+    "アニメーションを一時停止"
+  ],
+  "Resume animation": [
+    "繼續動畫",
+    "Animation fortsetzen",
+    "Reprendre l’animation",
+    "アニメーションを再開"
+  ],
+  "The free suggestion limit has been reached. Please try again later.": [
+    "已達免費建議使用上限，請稍後再試。",
+    "Das kostenlose Limit ist erreicht. Bitte später erneut versuchen.",
+    "La limite gratuite est atteinte. Réessayez plus tard.",
+    "無料提案の上限に達しました。後でもう一度お試しください。"
+  ],
+  "Not yet recorded": [
+    "尚未記錄",
+    "Noch nicht erfasst",
+    "Pas encore enregistré",
+    "未記録"
+  ],
+  "Open request": [
+    "公開請求",
+    "Offene Anfrage",
+    "Demande ouverte",
+    "募集中"
+  ],
+  "Ready to begin": [
+    "準備開始",
+    "Bereit zum Start",
+    "Prêt à commencer",
+    "開始準備"
+  ],
+  "In progress": [
+    "進行中",
+    "Läuft",
+    "En cours",
+    "進行中"
+  ],
+  "Confirm completion": [
+    "確認完成",
+    "Abschluss bestätigen",
+    "Confirmer la fin",
+    "完了を確認"
+  ],
+  "Completed": [
+    "已完成",
+    "Abgeschlossen",
+    "Terminé",
+    "完了"
+  ],
+  "Cancelled": [
+    "已取消",
+    "Abgesagt",
+    "Annulé",
+    "キャンセル済み"
+  ],
+  "Under review": [
+    "審核中",
+    "In Prüfung",
+    "En cours d’examen",
+    "確認中"
+  ],
+  "The service is unavailable. Check your internet connection and try again.": [
+    "暫時無法連接服務。請檢查網絡後再試。",
+    "Dienst nicht erreichbar. Bitte Internetverbindung prüfen und erneut versuchen.",
+    "Service indisponible. Vérifiez votre connexion et réessayez.",
+    "接続できません。通信環境を確認して再試行してください。"
+  ],
+  "Please try again.": [
+    "請再試一次。",
+    "Bitte erneut versuchen.",
+    "Veuillez réessayer.",
+    "もう一度お試しください。"
+  ],
+  "Save": [
+    "儲存",
+    "Speichern",
+    "Enregistrer",
+    "保存"
+  ],
+  "Saving…": [
+    "儲存中…",
+    "Wird gespeichert…",
+    "Enregistrement…",
+    "保存中…"
+  ],
+  "Your change has been saved.": [
+    "更改已儲存。",
+    "Änderung gespeichert.",
+    "Modification enregistrée.",
+    "変更を保存しました。"
+  ],
+  "Home": [
+    "首頁",
+    "Start",
+    "Accueil",
+    "ホーム"
+  ],
+  "Community tasks": [
+    "社區任務",
+    "Aufgaben der Gemeinschaft",
+    "Tâches de la communauté",
+    "地域の依頼"
+  ],
+  "Ask your community": [
+    "向社區求助",
+    "Gemeinschaft um Hilfe bitten",
+    "Demander de l’aide",
+    "地域に助けを頼む"
+  ],
+  "My Time Bank": [
+    "我的時間銀行",
+    "Meine Zeitbank",
+    "Ma banque de temps",
+    "マイ時間銀行"
+  ],
+  "My profile": [
+    "我的個人檔案",
+    "Mein Profil",
+    "Mon profil",
+    "マイプロフィール"
+  ],
+  "Notifications": [
+    "通知",
+    "Mitteilungen",
+    "Notifications",
+    "お知らせ"
+  ],
+  "Community administration": [
+    "社區管理",
+    "Gemeinschaft verwalten",
+    "Administration de la communauté",
+    "コミュニティ管理"
+  ],
+  "Member profile": [
+    "會員檔案",
+    "Mitgliedsprofil",
+    "Profil du membre",
+    "会員プロフィール"
+  ],
+  "Task details": [
+    "任務詳情",
+    "Aufgabendetails",
+    "Détails de la tâche",
+    "依頼の詳細"
+  ],
+  "Remote · ": [
+    "遙距 · ",
+    "Online · ",
+    "À distance · ",
+    "オンライン · "
+  ],
+  "Opening your community…": [
+    "正在開啟社區…",
+    "Gemeinschaft wird geöffnet…",
+    "Ouverture de votre communauté…",
+    "読み込み中…"
+  ],
+  "Keep your recovery key safe": [
+    "請妥善保存復原密鑰",
+    "Wiederherstellungsschlüssel sicher aufbewahren",
+    "Conservez votre clé de récupération",
+    "復旧キーを大切に保管してください"
+  ],
+  "This key lets you reset your password. It is shown only now. Save it somewhere private, separate from your password.": [
+    "此密鑰可用於重設密碼，僅在此顯示一次。請保存在私密位置，並與密碼分開存放。",
+    "Mit diesem Schlüssel können Sie Ihr Passwort zurücksetzen. Er wird nur jetzt angezeigt. Bewahren Sie ihn privat und getrennt vom Passwort auf.",
+    "Cette clé permet de réinitialiser votre mot de passe. Elle n’est affichée qu’une fois. Conservez-la dans un endroit privé, séparément du mot de passe.",
+    "このキーでパスワードを再設定できます。表示は今回のみです。パスワードとは別の安全な場所に保管してください。"
+  ],
+  "Recovery key copied. Paste it somewhere private before continuing.": [
+    "已複製復原密鑰。請先貼到私密位置保存。",
+    "Schlüssel kopiert. Vor dem Fortfahren privat speichern.",
+    "Clé copiée. Enregistrez-la dans un endroit privé avant de continuer.",
+    "復旧キーをコピーしました。安全な場所に保存してから進んでください。"
+  ],
+  "Copy recovery key": [
+    "複製復原密鑰",
+    "Schlüssel kopieren",
+    "Copier la clé",
+    "復旧キーをコピー"
+  ],
+  "Download recovery key": [
+    "下載復原密鑰",
+    "Schlüssel herunterladen",
+    "Télécharger la clé",
+    "復旧キーをダウンロード"
+  ],
+  "I have saved my recovery key": [
+    "我已保存復原密鑰",
+    "Ich habe den Schlüssel gespeichert",
+    "J’ai enregistré ma clé",
+    "復旧キーを保存しました"
+  ],
+  "TIME BANK": [
+    "時間銀行",
+    "ZEITBANK",
+    "BANQUE DE TEMPS",
+    "時間銀行"
+  ],
+  "A LITTLE TIME. A REAL DIFFERENCE.": [
+    "付出一點時間，帶來真正改變。",
+    "ETWAS ZEIT. EINE ECHTE HILFE.",
+    "UN PEU DE TEMPS. UNE VRAIE DIFFÉRENCE.",
+    "少しの時間で、確かな助けに。"
+  ],
+  "Join your community": [
+    "加入社區",
+    "Der Gemeinschaft beitreten",
+    "Rejoindre la communauté",
+    "コミュニティに参加"
+  ],
+  "Recover your account": [
+    "復原帳戶",
+    "Konto wiederherstellen",
+    "Récupérer votre compte",
+    "アカウントを復旧"
+  ],
+  "Set up your Time Bank": [
+    "設定時間銀行",
+    "Zeitbank einrichten",
+    "Configurer la banque de temps",
+    "時間銀行を設定"
+  ],
+  "Welcome to Silver Bank": [
+    "歡迎來到 Silver Bank",
+    "Willkommen bei Silver Bank",
+    "Bienvenue chez Silver Bank",
+    "Silver Bankへようこそ"
+  ],
+  "Create the administrator account and choose your community’s introductory credit policy.": [
+    "建立管理員帳戶，並設定新會員的初始時間積分政策。",
+    "Administratorkonto erstellen und Startguthaben festlegen.",
+    "Créez le compte administrateur et définissez le crédit de bienvenue.",
+    "管理者アカウントを作成し、新規会員の初期クレジットを設定してください。"
+  ],
+  "Use the private recovery key you saved when you joined.": [
+    "請使用註冊時保存的私人復原密鑰。",
+    "Den bei der Anmeldung gespeicherten Schlüssel verwenden.",
+    "Utilisez la clé privée enregistrée lors de votre inscription.",
+    "登録時に保存した復旧キーを使用してください。"
+  ],
+  "Give a helping hand. Ask for one, too. Every person’s time has equal value.": [
+    "互相幫忙，也放心求助。每個人的時間同樣珍貴。",
+    "Hilfe geben und annehmen. Jede Zeit ist gleich viel wert.",
+    "Donnez un coup de main, demandez-en aussi. Le temps de chacun a la même valeur.",
+    "助け合い、気軽に頼り合いましょう。誰の時間も同じ価値です。"
+  ],
+  "Sign in": [
+    "登入",
+    "Anmelden",
+    "Se connecter",
+    "ログイン"
+  ],
+  "Create account": [
+    "建立帳戶",
+    "Konto erstellen",
+    "Créer un compte",
+    "アカウント作成"
+  ],
+  "Reset password": [
+    "重設密碼",
+    "Passwort zurücksetzen",
+    "Réinitialiser le mot de passe",
+    "パスワード再設定"
+  ],
+  "Create community": [
+    "建立社區",
+    "Gemeinschaft erstellen",
+    "Créer la communauté",
+    "コミュニティ作成"
+  ],
+  "Your name": [
+    "您的姓名",
+    "Ihr Name",
+    "Votre nom",
+    "お名前"
+  ],
+  "General service area": [
+    "一般服務地區",
+    "Allgemeines Einsatzgebiet",
+    "Zone de service",
+    "サービス地域"
+  ],
+  "Email address": [
+    "電郵地址",
+    "E-Mail-Adresse",
+    "Adresse e-mail",
+    "メールアドレス"
+  ],
+  "Private recovery key": [
+    "私人復原密鑰",
+    "Privater Wiederherstellungsschlüssel",
+    "Clé de récupération privée",
+    "復旧キー"
+  ],
+  "New password": [
+    "新密碼",
+    "Neues Passwort",
+    "Nouveau mot de passe",
+    "新しいパスワード"
+  ],
+  "Password": [
+    "密碼",
+    "Passwort",
+    "Mot de passe",
+    "パスワード"
+  ],
+  "Use at least 12 characters.": [
+    "請使用至少 12 個字元。",
+    "Mindestens 12 Zeichen verwenden.",
+    "Utilisez au moins 12 caractères.",
+    "12文字以上で入力してください。"
+  ],
+  "Administrator setup key": [
+    "管理員設定密鑰",
+    "Einrichtungsschlüssel",
+    "Clé de configuration administrateur",
+    "管理者設定キー"
+  ],
+  "Introductory Time Credit (whole minutes)": [
+    "初始時間積分（整分鐘）",
+    "Startguthaben (ganze Minuten)",
+    "Crédit initial (minutes entières)",
+    "初期クレジット（分単位）"
+  ],
+  "This configurable credit is issued once per new account and recorded in the ledger. Enter 0 to begin without introductory credit.": [
+    "每個新帳戶只會獲發一次此積分，並記入帳本。輸入 0 表示不發放初始積分。",
+    "Dieses Guthaben wird einmal pro neuem Konto ausgegeben und verbucht. Für keinen Startbonus 0 eingeben.",
+    "Ce crédit est attribué une seule fois par nouveau compte et inscrit au registre. Saisissez 0 pour ne pas en attribuer.",
+    "新規アカウントごとに一度だけ発行し、台帳に記録します。付与しない場合は0を入力してください。"
+  ],
+  "Already a member? Sign in": [
+    "已有帳戶？登入",
+    "Schon Mitglied? Anmelden",
+    "Déjà membre ? Se connecter",
+    "登録済みの方はこちら"
+  ],
+  "New here? Create an account": [
+    "首次使用？建立帳戶",
+    "Neu hier? Konto erstellen",
+    "Nouveau ? Créer un compte",
+    "初めての方はアカウント作成"
+  ],
+  "Back to sign in": [
+    "返回登入",
+    "Zurück zur Anmeldung",
+    "Retour à la connexion",
+    "ログインに戻る"
+  ],
+  "Forgot your password?": [
+    "忘記密碼？",
+    "Passwort vergessen?",
+    "Mot de passe oublié ?",
+    "パスワードを忘れた場合"
+  ],
+  "People helping people. No money exchanged.": [
+    "互助互惠，不涉及金錢交易。",
+    "Menschen helfen Menschen. Ohne Geld.",
+    "L’entraide, sans échange d’argent.",
+    "人と人の助け合い。金銭の交換はありません。"
+  ],
+  "Complete your community profile": [
+    "完成社區個人檔案",
+    "Gemeinschaftsprofil vervollständigen",
+    "Compléter votre profil",
+    "プロフィールを完成"
+  ],
+  "Before participating, add your contact details and read the community agreements.": [
+    "參與前，請填寫聯絡資料並閱讀社區協議。",
+    "Vor der Teilnahme Kontaktdaten ergänzen und Vereinbarungen lesen.",
+    "Avant de participer, ajoutez vos coordonnées et lisez les accords.",
+    "参加前に連絡先を入力し、コミュニティ規約をお読みください。"
+  ],
+  "Save and continue": [
+    "儲存並繼續",
+    "Speichern und weiter",
+    "Enregistrer et continuer",
+    "保存して続ける"
+  ],
+  "Sign out": [
+    "登出",
+    "Abmelden",
+    "Se déconnecter",
+    "ログアウト"
+  ],
+  "Open notifications": [
+    "開啟通知",
+    "Mitteilungen öffnen",
+    "Ouvrir les notifications",
+    "お知らせを開く"
+  ],
+  "Updates": [
+    "最新消息",
+    "Neuigkeiten",
+    "Actualités",
+    "更新情報"
+  ],
+  "Open profile": [
+    "開啟個人檔案",
+    "Profil öffnen",
+    "Ouvrir le profil",
+    "プロフィールを開く"
+  ],
+  "Main navigation": [
+    "主要導覽",
+    "Hauptnavigation",
+    "Navigation principale",
+    "メインメニュー"
+  ],
+  "Tasks": [
+    "任務",
+    "Aufgaben",
+    "Tâches",
+    "依頼"
+  ],
+  "Create": [
+    "建立",
+    "Erstellen",
+    "Créer",
+    "作成"
+  ],
+  "Time Bank": [
+    "時間銀行",
+    "Zeitbank",
+    "Banque de temps",
+    "時間銀行"
+  ],
+  "Profile": [
+    "個人檔案",
+    "Profil",
+    "Profil",
+    "プロフィール"
+  ],
+  "YOUR COMMUNITY, CONNECTED": [
+    "連結您的社區",
+    "IHRE GEMEINSCHAFT, VERBUNDEN",
+    "VOTRE COMMUNAUTÉ, CONNECTÉE",
+    "地域とつながる"
+  ],
+  "Try again": [
+    "重試",
+    "Erneut versuchen",
+    "Réessayer",
+    "再試行"
+  ],
+  "Hello,": [
+    "您好，",
+    "Hallo,",
+    "Bonjour,",
+    "こんにちは、"
+  ],
+  "Good to have you here.": [
+    "很高興您來到這裏。",
+    "Schön, dass Sie da sind.",
+    "Heureux de vous accueillir.",
+    "ご参加ありがとうございます。"
+  ],
+  "My Time Balance": [
+    "我的時間結餘",
+    "Mein Zeitguthaben",
+    "Mon solde de temps",
+    "時間残高"
+  ],
+  "After your current requests. A negative balance is time you can give back.": [
+    "已扣除現有請求的預留時間。負數結餘代表您可透過幫忙回饋的時間。",
+    "Nach aktuellen Reservierungen. Ein negativer Saldo ist Zeit, die Sie zurückgeben können.",
+    "Après les réservations en cours. Un solde négatif représente du temps à rendre en aidant.",
+    "現在の予約分を差し引いた残高です。マイナス分は今後の助け合いで返せる時間です。"
+  ],
+  "reserved for your requests": [
+    "已為您的請求預留",
+    "für Ihre Anfragen reserviert",
+    "réservé pour vos demandes",
+    "依頼用に予約済み"
+  ],
+  "View my time activity": [
+    "查看時間紀錄",
+    "Meine Zeitaktivität ansehen",
+    "Voir mon activité",
+    "時間の履歴を見る"
+  ],
+  "Give Time": [
+    "付出時間",
+    "Zeit geben",
+    "Donner du temps",
+    "時間を提供"
+  ],
+  "Find someone you can help": [
+    "尋找需要幫忙的人",
+    "Jemanden zum Helfen finden",
+    "Trouver quelqu’un à aider",
+    "手伝える相手を探す"
+  ],
+  "Get Help": [
+    "尋求幫助",
+    "Hilfe erhalten",
+    "Recevoir de l’aide",
+    "助けを頼む"
+  ],
+  "Ask your community for a hand": [
+    "向社區尋求協助",
+    "Die Gemeinschaft um Hilfe bitten",
+    "Demander un coup de main",
+    "地域に助けを頼む"
+  ],
+  "A little help goes a long way": [
+    "一點幫忙，意義深遠",
+    "Kleine Hilfe bewirkt viel",
+    "Un peu d’aide change beaucoup",
+    "小さな手助けが大きな力に"
+  ],
+  "Open requests from your community": [
+    "社區的公開請求",
+    "Offene Anfragen Ihrer Gemeinschaft",
+    "Demandes ouvertes de la communauté",
+    "地域で募集中の依頼"
+  ],
+  "View all": [
+    "查看全部",
+    "Alle ansehen",
+    "Tout voir",
+    "すべて見る"
+  ],
+  "Your community has room to grow": [
+    "一起讓社區更熱鬧",
+    "Ihre Gemeinschaft kann wachsen",
+    "Votre communauté peut grandir",
+    "助け合いを広げましょう"
+  ],
+  "No open requests yet. Create a request when you need a hand, or check back to offer your time.": [
+    "暫時沒有公開請求。有需要時可建立請求，或稍後回來提供幫助。",
+    "Noch keine offenen Anfragen. Erstellen Sie bei Bedarf eine Anfrage oder schauen Sie später wieder vorbei.",
+    "Aucune demande ouverte. Créez une demande si besoin ou revenez proposer votre aide.",
+    "募集中の依頼はありません。助けが必要なら依頼を作成し、手伝いたい方は後ほどご確認ください。"
+  ],
+  "Everyone’s time is equally valuable.": [
+    "每個人的時間同樣珍貴。",
+    "Jede Zeit ist gleich wertvoll.",
+    "Le temps de chacun a la même valeur.",
+    "誰の時間も同じ価値です。"
+  ],
+  "An hour of help earns an hour of Time Credit, whatever the task.": [
+    "無論任務種類，幫忙一小時即可賺取一小時時間積分。",
+    "Eine Stunde Hilfe verdient eine Stunde Zeitguthaben, unabhängig von der Aufgabe.",
+    "Une heure d’aide rapporte une heure de crédit, quelle que soit la tâche.",
+    "どんな依頼でも、1時間の手助けで1時間のクレジットを得られます。"
+  ],
+  "Helping": [
+    "我在幫忙",
+    "Ich helfe",
+    "J’aide",
+    "手伝う依頼"
+  ],
+  "Requested": [
+    "我的請求",
+    "Meine Anfragen",
+    "Mes demandes",
+    "自分の依頼"
+  ],
+  "Filter requests": [
+    "篩選請求",
+    "Anfragen filtern",
+    "Filtrer les demandes",
+    "依頼を絞り込む"
+  ],
+  "Apply filters": [
+    "套用篩選",
+    "Filter anwenden",
+    "Appliquer les filtres",
+    "絞り込む"
+  ],
+  "Category": [
+    "類別",
+    "Kategorie",
+    "Catégorie",
+    "カテゴリ"
+  ],
+  "All categories": [
+    "所有類別",
+    "Alle Kategorien",
+    "Toutes les catégories",
+    "すべてのカテゴリ"
+  ],
+  "How you meet": [
+    "見面方式",
+    "Art des Treffens",
+    "Mode de rencontre",
+    "実施方法"
+  ],
+  "Remote or in person": [
+    "遙距或面對面",
+    "Online oder vor Ort",
+    "À distance ou en personne",
+    "オンラインまたは対面"
+  ],
+  "Remote": [
+    "遙距",
+    "Online",
+    "À distance",
+    "オンライン"
+  ],
+  "In person": [
+    "面對面",
+    "Vor Ort",
+    "En personne",
+    "対面"
+  ],
+  "Service area": [
+    "服務地區",
+    "Einsatzgebiet",
+    "Zone de service",
+    "サービス地域"
+  ],
+  "Maximum minutes": [
+    "最長時間（分鐘）",
+    "Höchstens Minuten",
+    "Durée maximale en minutes",
+    "上限時間（分）"
+  ],
+  "Requested date (UTC)": [
+    "要求日期（UTC）",
+    "Gewünschtes Datum (UTC)",
+    "Date souhaitée (UTC)",
+    "希望日（UTC）"
+  ],
+  "No requests found": [
+    "找不到請求",
+    "Keine Anfragen gefunden",
+    "Aucune demande trouvée",
+    "依頼が見つかりません"
+  ],
+  "No tasks here yet": [
+    "暫時沒有任務",
+    "Noch keine Aufgaben",
+    "Aucune tâche pour le moment",
+    "まだ依頼はありません"
+  ],
+  "Try broadening your filters or check back soon.": [
+    "請放寬篩選條件，或稍後再查看。",
+    "Filter erweitern oder später erneut nachsehen.",
+    "Élargissez vos filtres ou revenez plus tard.",
+    "条件を広げるか、後ほどご確認ください。"
+  ],
+  "Tasks will appear here when you ask for help or accept a request.": [
+    "您建立或接受請求後，任務會顯示在這裏。",
+    "Hier erscheinen Aufgaben, sobald Sie Hilfe anfragen oder eine Anfrage annehmen.",
+    "Vos tâches apparaîtront ici après une demande ou une acceptation.",
+    "依頼を作成または引き受けると、ここに表示されます。"
+  ],
+  "What would make your day a little easier?": [
+    "有甚麼能讓您的一天輕鬆一點？",
+    "Was würde Ihren Tag erleichtern?",
+    "Qu’est-ce qui faciliterait votre journée ?",
+    "どんな助けがあると嬉しいですか？"
+  ],
+  "Your current balance is": [
+    "您目前的結餘為",
+    "Ihr aktueller Saldo ist",
+    "Votre solde actuel est",
+    "現在の残高は"
+  ],
+  ". You can request help at zero or below zero. Posting reserves time and may make this balance negative; transfer happens after confirmed completion.": [
+    "。結餘為零或負數亦可求助。發佈時會預留時間，可能令結餘變成負數；確認完成後才會轉帳。",
+    ". Anfragen sind auch bei null oder negativem Saldo möglich. Das Reservieren kann den Saldo negativ machen; übertragen wird erst nach bestätigtem Abschluss.",
+    ". Vous pouvez demander de l’aide avec un solde nul ou négatif. La réservation peut rendre le solde négatif ; le transfert suit la confirmation de fin.",
+    "です。残高がゼロやマイナスでも依頼できます。投稿時に時間を予約し、完了確認後に振り替えます。"
+  ],
+  "Post request": [
+    "發佈請求",
+    "Anfrage veröffentlichen",
+    "Publier la demande",
+    "依頼を投稿"
+  ],
+  "What do you need help with?": [
+    "您需要甚麼幫助？",
+    "Wobei brauchen Sie Hilfe?",
+    "De quelle aide avez-vous besoin ?",
+    "何を手伝ってほしいですか？"
+  ],
+  "Choose a category": [
+    "選擇類別",
+    "Kategorie wählen",
+    "Choisir une catégorie",
+    "カテゴリを選択"
+  ],
+  "Tell your helper what is involved": [
+    "向幫忙者說明任務內容",
+    "Beschreiben Sie die Aufgabe",
+    "Décrivez ce qu’il faut faire",
+    "依頼内容を説明してください"
+  ],
+  "How will you meet?": [
+    "你們將如何見面？",
+    "Wie treffen Sie sich?",
+    "Comment vous rencontrerez-vous ?",
+    "どのように実施しますか？"
+  ],
+  "General location / service area": [
+    "一般地點／服務地區",
+    "Ort / Einsatzgebiet",
+    "Lieu / zone de service",
+    "場所・サービス地域"
+  ],
+  "Requested date and time": [
+    "要求日期及時間",
+    "Gewünschtes Datum und Uhrzeit",
+    "Date et heure souhaitées",
+    "希望日時"
+  ],
+  "Both people confirm when to start. The final credit uses actual elapsed time, including any overrun. Discuss the expected length together. Precise addresses can be shared privately after matching.": [
+    "雙方確認後才會開始計時。最終積分按實際時間計算，包括超時部分。請先商議預計時長，配對後可私下分享詳細地址。",
+    "Beide bestätigen den Start. Das Guthaben entspricht der tatsächlichen Dauer, auch bei Überschreitung. Besprechen Sie die Dauer und teilen Sie genaue Adressen nach der Vermittlung privat.",
+    "Les deux personnes confirment le début. Le crédit repose sur la durée réelle, dépassement compris. Discutez de la durée et partagez l’adresse exacte en privé après la mise en relation.",
+    "双方の確認後に開始します。延長を含む実際の時間で精算します。所要時間を相談し、詳しい住所はマッチング後に個別に共有してください。"
+  ],
+  "Back to tasks": [
+    "返回任務",
+    "Zurück zu Aufgaben",
+    "Retour aux tâches",
+    "依頼一覧に戻る"
+  ],
+  "Requested time": [
+    "要求時間",
+    "Gewünschte Zeit",
+    "Horaire souhaité",
+    "希望時間"
+  ],
+  "Expected time / credit": [
+    "預計時間／積分",
+    "Erwartete Zeit / Guthaben",
+    "Durée / crédit prévu",
+    "予定時間・クレジット"
+  ],
+  "Requested by": [
+    "請求人",
+    "Angefragt von",
+    "Demandé par",
+    "依頼者"
+  ],
+  "Task conversation": [
+    "任務對話",
+    "Aufgabengespräch",
+    "Conversation de la tâche",
+    "依頼のメッセージ"
+  ],
+  "Your private conversation starts here.": [
+    "你們的私人對話由此開始。",
+    "Ihr privates Gespräch beginnt hier.",
+    "Votre conversation privée commence ici.",
+    "ここから個別に連絡できます。"
+  ],
+  "Send message": [
+    "傳送訊息",
+    "Nachricht senden",
+    "Envoyer un message",
+    "メッセージ送信"
+  ],
+  "Your message": [
+    "您的訊息",
+    "Ihre Nachricht",
+    "Votre message",
+    "メッセージ"
+  ],
+  "Your next step": [
+    "下一步",
+    "Ihr nächster Schritt",
+    "Votre prochaine étape",
+    "次のステップ"
+  ],
+  "Offer your time to": [
+    "提供時間協助",
+    "Bieten Sie Ihre Zeit an:",
+    "Proposez votre temps à",
+    "手助けする相手："
+  ],
+  ". You can confirm the details together before starting.": [
+    "。開始前可一起確認細節。",
+    ". Sie können die Einzelheiten vor Beginn gemeinsam klären.",
+    ". Vous pourrez confirmer les détails ensemble avant de commencer.",
+    "。開始前に詳細を相談できます。"
+  ],
+  "Accept task": [
+    "接受任務",
+    "Aufgabe annehmen",
+    "Accepter la tâche",
+    "依頼を引き受ける"
+  ],
+  "Your request is available to other members. We’ll let you know when someone accepts.": [
+    "其他會員可查看您的請求。有人接受後，我們會通知您。",
+    "Andere Mitglieder können Ihre Anfrage sehen. Bei Annahme erhalten Sie eine Mitteilung.",
+    "Votre demande est visible aux membres. Vous serez averti lorsqu’elle sera acceptée.",
+    "他の会員に依頼を公開しています。引き受ける人が決まるとお知らせします。"
+  ],
+  "Both people must confirm they are ready. The clock starts when the second person confirms.": [
+    "雙方均須確認準備就緒。第二位參與者確認後即開始計時。",
+    "Beide müssen ihre Bereitschaft bestätigen. Die zweite Bestätigung startet die Zeit.",
+    "Les deux personnes doivent confirmer. Le chronomètre démarre à la seconde confirmation.",
+    "双方が準備を確認します。2人目の確認で計時を開始します。"
+  ],
+  "Ready": [
+    "已準備好",
+    "Bereit",
+    "Prêt",
+    "準備完了"
+  ],
+  "Not confirmed": [
+    "尚未確認",
+    "Nicht bestätigt",
+    "Non confirmé",
+    "未確認"
+  ],
+  "Agree & start task": [
+    "同意並開始任務",
+    "Zustimmen und starten",
+    "Accepter et commencer",
+    "同意して開始"
+  ],
+  "Started": [
+    "開始時間",
+    "Begonnen",
+    "Début",
+    "開始"
+  ],
+  "Elapsed time": [
+    "已過時間",
+    "Vergangene Zeit",
+    "Temps écoulé",
+    "経過時間"
+  ],
+  "Time is recorded by the service and continues when this page is closed.": [
+    "時間由系統記錄，關閉此頁亦會繼續計時。",
+    "Der Dienst erfasst die Zeit auch bei geschlossener Seite.",
+    "Le service enregistre le temps même si cette page est fermée.",
+    "ページを閉じてもサーバーで時間を記録します。"
+  ],
+  "We’ve finished": [
+    "我們已完成",
+    "Wir sind fertig",
+    "Nous avons terminé",
+    "終了しました"
+  ],
+  "Finished": [
+    "完成時間",
+    "Beendet",
+    "Fin",
+    "終了"
+  ],
+  "Confirmed service time": [
+    "已確認服務時間",
+    "Bestätigte Hilfszeit",
+    "Durée confirmée",
+    "確定した提供時間"
+  ],
+  "Proposed service time": [
+    "待確認服務時間",
+    "Vorgeschlagene Hilfszeit",
+    "Durée proposée",
+    "確認待ちの提供時間"
+  ],
+  "Waiting for the other participant to confirm the recorded time.": [
+    "等待另一位參與者確認記錄時間。",
+    "Warten auf die Zeitbestätigung der anderen Person.",
+    "En attente de confirmation par l’autre participant.",
+    "相手が記録時間を確認するのを待っています。"
+  ],
+  "Confirm that the recorded time is correct. This transfers": [
+    "請確認記錄時間正確。此操作將轉移",
+    "Bestätigen Sie die erfasste Zeit. Übertragen werden",
+    "Confirmez la durée enregistrée. Cela transfère",
+    "記録時間を確認してください。振替時間："
+  ],
+  "from": [
+    "由",
+    "von",
+    "de",
+    "振替元："
+  ],
+  "to": [
+    "至",
+    "an",
+    "à",
+    "振替先："
+  ],
+  "Time Credit transferred successfully. Thank you for helping your community.": [
+    "時間積分已成功轉帳。感謝您參與社區互助。",
+    "Zeitguthaben übertragen. Danke für Ihre Hilfe.",
+    "Crédit transféré. Merci pour votre entraide.",
+    "時間クレジットを振り替えました。助け合いへの参加ありがとうございます。"
+  ],
+  "Your report is awaiting administrator review. No service credit has been transferred.": [
+    "您的報告正等待管理員審核，尚未轉移服務積分。",
+    "Ihre Meldung wartet auf Prüfung. Es wurde kein Hilfsguthaben übertragen.",
+    "Votre signalement attend un examen. Aucun crédit de service n’a été transféré.",
+    "報告は管理者の確認待ちです。クレジットはまだ振り替えていません。"
+  ],
+  "Reason:": [
+    "原因：",
+    "Grund:",
+    "Motif :",
+    "理由："
+  ],
+  "Cancel this request": [
+    "取消此請求",
+    "Diese Anfrage absagen",
+    "Annuler cette demande",
+    "この依頼をキャンセル"
+  ],
+  "Cancel request": [
+    "取消請求",
+    "Anfrage absagen",
+    "Annuler la demande",
+    "依頼をキャンセル"
+  ],
+  "Reason for cancellation": [
+    "取消原因",
+    "Grund der Absage",
+    "Motif d’annulation",
+    "キャンセル理由"
+  ],
+  "Report a problem or disagree": [
+    "報告問題或提出異議",
+    "Problem oder Widerspruch melden",
+    "Signaler un problème ou un désaccord",
+    "問題・異議を報告"
+  ],
+  "Request administrator review": [
+    "要求管理員審核",
+    "Prüfung anfordern",
+    "Demander un examen",
+    "管理者に確認を依頼"
+  ],
+  "Describe the problem": [
+    "描述問題",
+    "Problem beschreiben",
+    "Décrire le problème",
+    "問題を説明"
+  ],
+  "Share your experience": [
+    "分享您的體驗",
+    "Erfahrung teilen",
+    "Partager votre expérience",
+    "体験を共有"
+  ],
+  "Your review has been recorded. Thank you.": [
+    "您的評價已儲存，謝謝。",
+    "Bewertung gespeichert. Vielen Dank.",
+    "Avis enregistré. Merci.",
+    "評価を保存しました。ありがとうございます。"
+  ],
+  "Submit review": [
+    "提交評價",
+    "Bewertung senden",
+    "Envoyer l’avis",
+    "評価を送信"
+  ],
+  "Rating": [
+    "評分",
+    "Bewertung",
+    "Note",
+    "評価"
+  ],
+  "Choose a rating": [
+    "選擇評分",
+    "Bewertung wählen",
+    "Choisir une note",
+    "評価を選択"
+  ],
+  "stars": [
+    "星",
+    "Sterne",
+    "étoiles",
+    "つ星"
+  ],
+  "Feedback (optional)": [
+    "意見（選填）",
+    "Rückmeldung (optional)",
+    "Commentaire (facultatif)",
+    "コメント（任意）"
+  ],
+  "Loading task…": [
+    "正在載入任務…",
+    "Aufgabe wird geladen…",
+    "Chargement de la tâche…",
+    "依頼を読み込み中…"
+  ],
+  "Balance after reservations": [
+    "扣除預留後的結餘",
+    "Saldo nach Reservierungen",
+    "Solde après réservations",
+    "予約分を差し引いた残高"
+  ],
+  "reserved": [
+    "已預留",
+    "reserviert",
+    "réservé",
+    "予約済み"
+  ],
+  "Time contributed": [
+    "已貢獻時間",
+    "Geleistete Zeit",
+    "Temps donné",
+    "提供した時間"
+  ],
+  "Time received": [
+    "已接受幫助時間",
+    "Erhaltene Zeit",
+    "Temps reçu",
+    "受け取った時間"
+  ],
+  "Your time activity": [
+    "您的時間紀錄",
+    "Ihre Zeitaktivität",
+    "Votre activité",
+    "時間の履歴"
+  ],
+  "Every issue, reservation, release and transfer is recorded here.": [
+    "每次發放、預留、釋放及轉帳均記錄在這裏。",
+    "Jede Ausgabe, Reservierung, Freigabe und Übertragung wird hier erfasst.",
+    "Chaque attribution, réservation, libération et transfert est enregistré ici.",
+    "発行・予約・解除・振替をすべて記録しています。"
+  ],
+  "Welcome Time Credit": [
+    "迎新時間積分",
+    "Willkommensguthaben",
+    "Crédit de bienvenue",
+    "初期時間クレジット"
+  ],
+  "Administrator adjustment": [
+    "管理員調整",
+    "Administrative Anpassung",
+    "Ajustement administrateur",
+    "管理者による調整"
+  ],
+  "Earned from ": [
+    "賺取自 ",
+    "Erhalten von ",
+    "Gagné auprès de ",
+    "獲得先："
+  ],
+  "Spent with ": [
+    "使用於 ",
+    "Verwendet bei ",
+    "Utilisé avec ",
+    "利用先："
+  ],
+  "Reserved for your request": [
+    "已為您的請求預留",
+    "Für Ihre Anfrage reserviert",
+    "Réservé pour votre demande",
+    "依頼用に予約済み"
+  ],
+  "Reservation released": [
+    "已釋放預留時間",
+    "Reservierung freigegeben",
+    "Réservation libérée",
+    "予約解除"
+  ],
+  "Held ": [
+    "預留 ",
+    "Reserviert ",
+    "Réservé ",
+    "予約 "
+  ],
+  "Released ": [
+    "釋放 ",
+    "Freigegeben ",
+    "Libéré ",
+    "解除 "
+  ],
+  "Your time story starts here": [
+    "您的互助故事由此開始",
+    "Ihre Zeitgeschichte beginnt hier",
+    "Votre histoire d’entraide commence ici",
+    "ここから助け合いが始まります"
+  ],
+  "Give time to a neighbour and your confirmed contribution will appear here.": [
+    "幫助鄰里後，已確認的貢獻將顯示在這裏。",
+    "Bestätigte Hilfe für Ihre Nachbarn erscheint hier.",
+    "Votre aide confirmée à un voisin apparaîtra ici.",
+    "手助けが確認されると、ここに表示されます。"
+  ],
+  "Load older activity": [
+    "載入較早紀錄",
+    "Ältere Aktivität laden",
+    "Charger les activités précédentes",
+    "以前の履歴を表示"
+  ],
+  "No reviews yet": [
+    "暫無評價",
+    "Noch keine Bewertungen",
+    "Aucun avis pour le moment",
+    "評価はまだありません"
+  ],
+  "reviews": [
+    "則評價",
+    "Bewertungen",
+    "avis",
+    "件の評価"
+  ],
+  "New to the community": [
+    "新加入社區",
+    "Neu in der Gemeinschaft",
+    "Nouveau membre",
+    "新しい会員"
+  ],
+  "completed tasks": [
+    "項已完成任務",
+    "abgeschlossene Aufgaben",
+    "tâches terminées",
+    "件完了"
+  ],
+  "completed tasks ·": [
+    "項已完成任務 ·",
+    "abgeschlossene Aufgaben ·",
+    "tâches terminées ·",
+    "件完了 ·"
+  ],
+  "Community contribution:": [
+    "社區貢獻：",
+    "Gemeinschaftsbeitrag:",
+    "Contribution :",
+    "地域への貢献："
+  ],
+  "Save profile": [
+    "儲存個人檔案",
+    "Profil speichern",
+    "Enregistrer le profil",
+    "プロフィールを保存"
+  ],
+  "Name": [
+    "姓名",
+    "Name",
+    "Nom",
+    "名前"
+  ],
+  "Account email": [
+    "帳戶電郵",
+    "Konto-E-Mail",
+    "E-mail du compte",
+    "登録メールアドレス"
+  ],
+  "Skills you can share": [
+    "可分享的技能",
+    "Ihre Fähigkeiten",
+    "Compétences à partager",
+    "提供できるスキル"
+  ],
+  "Preferred task categories": [
+    "偏好任務類別",
+    "Bevorzugte Aufgaben",
+    "Catégories préférées",
+    "希望する依頼カテゴリ"
+  ],
+  "Profile photo (PNG, JPEG or WebP, up to 1 MB)": [
+    "個人相片（PNG、JPEG 或 WebP，上限 1 MB）",
+    "Profilfoto (PNG, JPEG oder WebP, bis 1 MB)",
+    "Photo (PNG, JPEG ou WebP, 1 Mo max.)",
+    "写真（PNG・JPEG・WebP、1 MB以下）"
+  ],
+  "Choose an image smaller than 1 MB.": [
+    "請選擇小於 1 MB 的圖片。",
+    "Bitte ein Bild unter 1 MB wählen.",
+    "Choisissez une image de moins de 1 Mo.",
+    "1 MB未満の画像を選択してください。"
+  ],
+  "Profile preview": [
+    "個人相片預覽",
+    "Profilvorschau",
+    "Aperçu du profil",
+    "写真のプレビュー"
+  ],
+  "Remove photo": [
+    "移除相片",
+    "Foto entfernen",
+    "Supprimer la photo",
+    "写真を削除"
+  ],
+  "Recent reviews": [
+    "最近評價",
+    "Neueste Bewertungen",
+    "Avis récents",
+    "最近の評価"
+  ],
+  "No written feedback.": [
+    "沒有文字意見。",
+    "Keine schriftliche Rückmeldung.",
+    "Aucun commentaire écrit.",
+    "コメントはありません。"
+  ],
+  "contributed": [
+    "已貢獻",
+    "geleistet",
+    "donné",
+    "提供済み"
+  ],
+  "Skills": [
+    "技能",
+    "Fähigkeiten",
+    "Compétences",
+    "スキル"
+  ],
+  "No skills added yet.": [
+    "尚未新增技能。",
+    "Noch keine Fähigkeiten ergänzt.",
+    "Aucune compétence ajoutée.",
+    "スキルは未登録です。"
+  ],
+  "Preferred categories": [
+    "偏好類別",
+    "Bevorzugte Kategorien",
+    "Catégories préférées",
+    "希望カテゴリ"
+  ],
+  "No preferences added yet.": [
+    "尚未新增偏好。",
+    "Noch keine Vorlieben ergänzt.",
+    "Aucune préférence ajoutée.",
+    "希望は未登録です。"
+  ],
+  "Mark all as read": [
+    "全部標示為已讀",
+    "Alle als gelesen markieren",
+    "Tout marquer comme lu",
+    "すべて既読にする"
+  ],
+  "Read": [
+    "已讀",
+    "Gelesen",
+    "Lu",
+    "既読"
+  ],
+  "Unread": [
+    "未讀",
+    "Ungelesen",
+    "Non lu",
+    "未読"
+  ],
+  "You’re all caught up": [
+    "您已看完所有消息",
+    "Alles auf dem neuesten Stand",
+    "Vous êtes à jour",
+    "新しいお知らせはありません"
+  ],
+  "Updates about your requests and Time Credit will appear here.": [
+    "請求及時間積分的最新消息會顯示在這裏。",
+    "Neuigkeiten zu Anfragen und Guthaben erscheinen hier.",
+    "Les mises à jour de vos demandes et crédits apparaîtront ici.",
+    "依頼やクレジットの更新をここに表示します。"
+  ],
+  "Every person. Equal time.": [
+    "人人平等，時間同值。",
+    "Jeder Mensch. Gleiche Zeit.",
+    "Chaque personne. Un temps égal.",
+    "誰の時間も平等に。"
+  ],
+  "Estimated duration (whole minutes)": [
+    "預計時長（整分鐘）",
+    "Geschätzte Dauer (ganze Minuten)",
+    "Durée estimée (minutes entières)",
+    "予定時間（分単位）"
+  ],
+  "Time reserved:": [
+    "預留時間：",
+    "Reservierte Zeit:",
+    "Temps réservé :",
+    "予約時間："
+  ],
+  "· Balance after posting:": [
+    "· 發佈後結餘：",
+    "· Saldo nach Veröffentlichung:",
+    "· Solde après publication :",
+    "· 投稿後の残高："
+  ],
+  "No tasks yet": [
+    "暫無任務",
+    "Noch keine Aufgaben",
+    "Aucune tâche",
+    "まだ依頼はありません"
+  ],
+  "Community requests and disputes will appear here.": [
+    "社區請求及爭議將顯示在這裏。",
+    "Anfragen und Streitfälle erscheinen hier.",
+    "Les demandes et litiges apparaîtront ici.",
+    "依頼や異議の内容をここに表示します。"
+  ],
+  "Resolve or cancel task": [
+    "處理或取消任務",
+    "Aufgabe klären oder absagen",
+    "Résoudre ou annuler",
+    "依頼を解決・キャンセル"
+  ],
+  "Apply resolution": [
+    "套用處理結果",
+    "Lösung anwenden",
+    "Appliquer la décision",
+    "対応を適用"
+  ],
+  "Resolution": [
+    "處理方式",
+    "Lösung",
+    "Décision",
+    "対応方法"
+  ],
+  "Cancel and release held credit": [
+    "取消並釋放預留積分",
+    "Absagen und Guthaben freigeben",
+    "Annuler et libérer le crédit",
+    "キャンセルして予約を解除"
+  ],
+  "Settle recorded service duration": [
+    "按記錄服務時間結算",
+    "Erfasste Hilfszeit abrechnen",
+    "Régler la durée enregistrée",
+    "記録時間で精算"
+  ],
+  "Reason (required for audit)": [
+    "原因（審核必填）",
+    "Grund (für Prüfung erforderlich)",
+    "Motif (obligatoire pour l’audit)",
+    "理由（監査用・必須）"
+  ],
+  "Suspended": [
+    "已停用",
+    "Gesperrt",
+    "Suspendu",
+    "利用停止中"
+  ],
+  "Active": [
+    "使用中",
+    "Aktiv",
+    "Actif",
+    "有効"
+  ],
+  "Available": [
+    "可用",
+    "Verfügbar",
+    "Disponible",
+    "利用可能"
+  ],
+  "· Reserved": [
+    "· 已預留",
+    "· Reserviert",
+    "· Réservé",
+    "· 予約済み"
+  ],
+  "Manage account": [
+    "管理帳戶",
+    "Konto verwalten",
+    "Gérer le compte",
+    "アカウント管理"
+  ],
+  "Restore account": [
+    "恢復帳戶",
+    "Konto entsperren",
+    "Rétablir le compte",
+    "利用停止を解除"
+  ],
+  "Suspend account": [
+    "停用帳戶",
+    "Konto sperren",
+    "Suspendre le compte",
+    "アカウントを停止"
+  ],
+  "Reason": [
+    "原因",
+    "Grund",
+    "Motif",
+    "理由"
+  ],
+  "Record credit adjustment": [
+    "記錄積分調整",
+    "Guthabenanpassung erfassen",
+    "Enregistrer l’ajustement",
+    "クレジット調整を記録"
+  ],
+  "Adjustment in whole seconds (negative to remove)": [
+    "調整秒數（負數代表扣除）",
+    "Anpassung in Sekunden (negativ zum Abziehen)",
+    "Ajustement en secondes (négatif pour retirer)",
+    "調整秒数（減額はマイナス）"
+  ],
+  "Reason for adjustment": [
+    "調整原因",
+    "Grund der Anpassung",
+    "Motif de l’ajustement",
+    "調整理由"
+  ],
+  "New-member participation": [
+    "新會員參與政策",
+    "Teilnahme neuer Mitglieder",
+    "Participation des nouveaux membres",
+    "新規会員の参加設定"
+  ],
+  "Save onboarding policy": [
+    "儲存迎新政策",
+    "Startregel speichern",
+    "Enregistrer la politique d’accueil",
+    "初期設定を保存"
+  ],
+  "Introductory credit for new accounts (minutes)": [
+    "新帳戶初始積分（分鐘）",
+    "Startguthaben neuer Konten (Minuten)",
+    "Crédit initial des nouveaux comptes (minutes)",
+    "新規アカウントの初期時間（分）"
+  ],
+  "Reason for policy change": [
+    "政策更改原因",
+    "Grund der Regeländerung",
+    "Motif du changement",
+    "設定変更の理由"
+  ],
+  "Applies to future registrations. Existing ledger records remain unchanged. All services use the same time rate.": [
+    "適用於日後註冊的帳戶，現有帳本不變。所有服務均使用相同時間兌換率。",
+    "Gilt für künftige Anmeldungen. Vorhandene Buchungen bleiben erhalten. Für alle Hilfen gilt derselbe Zeitsatz.",
+    "S’applique aux futures inscriptions. Les écritures existantes restent inchangées. Le taux est identique pour tous.",
+    "今後の登録に適用します。既存の台帳は変更せず、すべてのサービスに同じ時間比率を適用します。"
+  ],
+  "Service categories": [
+    "服務類別",
+    "Hilfekategorien",
+    "Catégories de services",
+    "サービスカテゴリ"
+  ],
+  "Hidden": [
+    "已隱藏",
+    "Ausgeblendet",
+    "Masqué",
+    "非表示"
+  ],
+  "Hide category": [
+    "隱藏類別",
+    "Kategorie ausblenden",
+    "Masquer la catégorie",
+    "カテゴリを非表示"
+  ],
+  "Enable category": [
+    "啟用類別",
+    "Kategorie aktivieren",
+    "Activer la catégorie",
+    "カテゴリを有効化"
+  ],
+  "Add category": [
+    "新增類別",
+    "Kategorie hinzufügen",
+    "Ajouter une catégorie",
+    "カテゴリ追加"
+  ],
+  "Category name": [
+    "類別名稱",
+    "Kategoriename",
+    "Nom de la catégorie",
+    "カテゴリ名"
+  ],
+  "Transaction": [
+    "交易",
+    "Buchung",
+    "Transaction",
+    "取引"
+  ],
+  "From": [
+    "來源",
+    "Von",
+    "De",
+    "振替元"
+  ],
+  "Community issuance": [
+    "社區發放",
+    "Gemeinschaftsausgabe",
+    "Attribution communautaire",
+    "地域からの発行"
+  ],
+  "To": [
+    "目的地",
+    "An",
+    "À",
+    "振替先"
+  ],
+  "Community / reservation": [
+    "社區／預留",
+    "Gemeinschaft / Reservierung",
+    "Communauté / réservation",
+    "地域・予約"
+  ],
+  "View task": [
+    "查看任務",
+    "Aufgabe ansehen",
+    "Voir la tâche",
+    "依頼を見る"
+  ],
+  "Actor": [
+    "操作人",
+    "Ausführende Person",
+    "Auteur",
+    "操作した会員"
+  ],
+  "Target": [
+    "對象",
+    "Ziel",
+    "Cible",
+    "対象"
+  ],
+  "Users": [
+    "會員",
+    "Mitglieder",
+    "Membres",
+    "会員"
+  ],
+  "Ledger": [
+    "帳本",
+    "Zeitbuch",
+    "Registre",
+    "台帳"
+  ],
+  "Rules": [
+    "規則",
+    "Regeln",
+    "Règles",
+    "ルール"
+  ],
+  "Audit": [
+    "審核紀錄",
+    "Prüfprotokoll",
+    "Journal d’audit",
+    "監査履歴"
+  ],
+  "Enter your town or neighbourhood. Share an exact meeting address only in your private task conversation.": [
+    "請輸入所在城鎮或社區。詳細見面地址請只在私人任務對話中分享。",
+    "Ort oder Viertel eingeben. Genaue Treffadressen nur im privaten Aufgabengespräch teilen.",
+    "Indiquez votre ville ou quartier. Partagez l’adresse exacte uniquement dans la conversation privée.",
+    "市区町村や地域名を入力してください。詳しい待ち合わせ場所は個別メッセージで共有してください。"
+  ],
+  "Country calling code": [
+    "國際電話區號",
+    "Ländervorwahl",
+    "Indicatif du pays",
+    "国番号"
+  ],
+  "Choose a code": [
+    "選擇區號",
+    "Vorwahl wählen",
+    "Choisir l’indicatif",
+    "国番号を選択"
+  ],
+  "Phone number": [
+    "電話號碼",
+    "Telefonnummer",
+    "Numéro de téléphone",
+    "電話番号"
+  ],
+  "Preferred language": [
+    "介面語言",
+    "Bevorzugte Sprache",
+    "Langue préférée",
+    "表示言語"
+  ],
+  "Age range": [
+    "年齡組別",
+    "Altersgruppe",
+    "Tranche d’âge",
+    "年齢層"
+  ],
+  "Choose your age range": [
+    "選擇年齡組別",
+    "Altersgruppe wählen",
+    "Choisir votre tranche d’âge",
+    "年齢層を選択"
+  ],
+  "Under 18": [
+    "18 歲以下",
+    "Unter 18",
+    "Moins de 18 ans",
+    "18歳未満"
+  ],
+  "75 or older": [
+    "75 歲或以上",
+    "75 oder älter",
+    "75 ans ou plus",
+    "75歳以上"
+  ],
+  "Your phone number and age range are private account information.": [
+    "電話號碼及年齡組別屬私人帳戶資料。",
+    "Telefonnummer und Altersgruppe sind private Kontoinformationen.",
+    "Votre téléphone et votre tranche d’âge sont des informations privées.",
+    "電話番号と年齢層は非公開のアカウント情報です。"
+  ],
+  "Before you begin": [
+    "開始之前",
+    "Bevor Sie beginnen",
+    "Avant de commencer",
+    "開始する前に"
+  ],
+  "Community agreements": [
+    "社區協議",
+    "Gemeinschaftsvereinbarungen",
+    "Accords communautaires",
+    "コミュニティ規約"
+  ],
+  "Read each agreement before selecting its checkbox. Your name, handwritten signature, agreement version and acceptance time will be saved.": [
+    "勾選前請閱讀各項協議。您的姓名、手寫簽名、協議版本及同意時間將會儲存。",
+    "Jede Vereinbarung vor dem Ankreuzen lesen. Name, Unterschrift, Version und Zeitpunkt werden gespeichert.",
+    "Lisez chaque accord avant de cocher. Votre nom, signature, version et date d’acceptation seront enregistrés.",
+    "各規約を読んでからチェックしてください。氏名・手書き署名・規約の版・同意日時を保存します。"
+  ],
+  "Version": [
+    "版本",
+    "Version",
+    "Version",
+    "バージョン"
+  ],
+  "I have read and agree to the": [
+    "我已閱讀並同意",
+    "Ich habe gelesen und stimme zu:",
+    "J’ai lu et j’accepte",
+    "次の規約を読み、同意します："
+  ],
+  "I understand the task I am accepting.": [
+    "我理解此任務的內容。",
+    "Ich verstehe die Aufgabe, die ich annehme.",
+    "Je comprends la tâche que j’accepte.",
+    "引き受ける依頼の内容を理解しています。"
+  ],
+  "Your full name": [
+    "您的全名",
+    "Ihr vollständiger Name",
+    "Votre nom complet",
+    "氏名"
+  ],
+  "The supplied agreements mention features that apply only where supported. This release has no watch, health monitoring, voice/video calling or emergency-monitoring features.": [
+    "協議提及的部分功能只適用於有提供該功能的版本。本版本不提供手錶、健康監測、語音／視像通話或緊急監測功能。",
+    "Die Vereinbarungen erwähnen nur bei Verfügbarkeit geltende Funktionen. Diese Version bietet keine Uhren-, Gesundheits-, Anruf- oder Notfallüberwachung.",
+    "Certaines fonctions des accords ne s’appliquent que si disponibles. Cette version n’inclut ni montre, suivi de santé, appels ni surveillance d’urgence.",
+    "規約には提供時のみ適用される機能への言及があります。本版に時計・健康監視・通話・緊急監視機能はありません。"
+  ],
+  "Read the original guidelines PDF": [
+    "閱讀原始指引 PDF",
+    "Originalrichtlinien als PDF lesen",
+    "Lire le PDF original",
+    "原本のPDFを読む"
+  ],
+  "The agreement text below is the original English version.": [
+    "以下協議為英文原文。",
+    "Der folgende Vertragstext ist das englische Original.",
+    "Le texte ci-dessous est la version anglaise originale.",
+    "以下の規約本文は英語の原文です。"
+  ],
+  "Time Bank Community Participation Agreement": [
+    "時間銀行社區參與協議",
+    "Vereinbarung zur Teilnahme an der Zeitbank",
+    "Accord de participation à la banque de temps",
+    "時間銀行コミュニティ参加規約"
+  ],
+  "Private Task and One-to-One Interaction Safety Agreement": [
+    "私人任務及一對一互動安全協議",
+    "Sicherheitsvereinbarung für private Aufgaben und Einzelkontakte",
+    "Accord de sécurité des tâches privées et interactions individuelles",
+    "個別の依頼・一対一交流の安全規約"
+  ],
+  "Sign in the box using your finger, mouse or pen.": [
+    "請用手指、滑鼠或觸控筆在框內簽名。",
+    "Mit Finger, Maus oder Stift im Feld unterschreiben.",
+    "Signez dans le cadre avec le doigt, la souris ou un stylet.",
+    "指・マウス・ペンで枠内に署名してください。"
+  ],
+  "Handwritten signature": [
+    "手寫簽名",
+    "Handschriftliche Unterschrift",
+    "Signature manuscrite",
+    "手書き署名"
+  ],
+  "Clear signature": [
+    "清除簽名",
+    "Unterschrift löschen",
+    "Effacer la signature",
+    "署名を消去"
+  ],
+  "Signature added": [
+    "已加入簽名",
+    "Unterschrift hinzugefügt",
+    "Signature ajoutée",
+    "署名しました"
+  ],
+  "Signature required": [
+    "請簽名",
+    "Unterschrift erforderlich",
+    "Signature requise",
+    "署名が必要です"
+  ],
+  "Your signed agreements": [
+    "您已簽署的協議",
+    "Ihre unterschriebenen Vereinbarungen",
+    "Vos accords signés",
+    "署名済みの規約"
+  ],
+  "Private interaction agreement": [
+    "私人互動協議",
+    "Vereinbarung für private Kontakte",
+    "Accord d’interaction privée",
+    "個別交流規約"
+  ],
+  "Saved handwritten signature": [
+    "已儲存的手寫簽名",
+    "Gespeicherte Unterschrift",
+    "Signature enregistrée",
+    "保存済みの署名"
+  ],
+  "Choose a country calling code.": [
+    "請選擇國際電話區號。",
+    "Bitte eine Ländervorwahl wählen.",
+    "Choisissez un indicatif de pays.",
+    "国番号を選択してください。"
+  ],
+  "Enter your phone number without the country code.": [
+    "請輸入不含國際區號的電話號碼。",
+    "Telefonnummer ohne Ländervorwahl eingeben.",
+    "Saisissez le numéro sans indicatif du pays.",
+    "国番号を除いた電話番号を入力してください。"
+  ],
+  "Enter a possible phone number for the selected country code.": [
+    "請輸入符合所選區號的電話號碼。",
+    "Bitte eine passende Telefonnummer zur Vorwahl eingeben.",
+    "Saisissez un numéro possible pour l’indicatif choisi.",
+    "選択した国番号に合う電話番号を入力してください。"
+  ],
+  "Please add your handwritten signature.": [
+    "請加入您的手寫簽名。",
+    "Bitte handschriftlich unterschreiben.",
+    "Veuillez ajouter votre signature manuscrite.",
+    "手書き署名を入力してください。"
+  ],
+  "Invalid signature. Please clear and sign again.": [
+    "簽名無效，請清除後重新簽署。",
+    "Ungültige Unterschrift. Bitte löschen und erneut unterschreiben.",
+    "Signature invalide. Effacez et signez à nouveau.",
+    "署名が無効です。消去して署名し直してください。"
+  ],
+  "Shopping and errands": [
+    "購物及跑腿",
+    "Einkäufe und Besorgungen",
+    "Courses et démarches",
+    "買い物・用事"
+  ],
+  "Parcel collection": [
+    "代收包裹",
+    "Paketabholung",
+    "Retrait de colis",
+    "荷物の受け取り"
+  ],
+  "Pet care": [
+    "寵物照顧",
+    "Tierbetreuung",
+    "Garde d’animaux",
+    "ペットのお世話"
+  ],
+  "Plant care": [
+    "植物照顧",
+    "Pflanzenpflege",
+    "Entretien des plantes",
+    "植物のお世話"
+  ],
+  "Technology assistance": [
+    "科技協助",
+    "Technikhilfe",
+    "Aide informatique",
+    "機器・ITのサポート"
+  ],
+  "Household help": [
+    "家居協助",
+    "Haushaltshilfe",
+    "Aide à domicile",
+    "家事の手伝い"
+  ],
+  "Language practice": [
+    "語言練習",
+    "Sprachübung",
+    "Pratique des langues",
+    "語学練習"
+  ],
+  "Teaching and skills exchange": [
+    "教學及技能交流",
+    "Lernen und Fähigkeiten teilen",
+    "Enseignement et échange de compétences",
+    "学習・スキル交流"
+  ],
+  "Companionship": [
+    "陪伴",
+    "Gesellschaft leisten",
+    "Compagnie",
+    "話し相手・付き添い"
+  ],
+  "Community assistance": [
+    "社區協助",
+    "Gemeinschaftshilfe",
+    "Aide communautaire",
+    "地域の手伝い"
+  ],
+  "Other": [
+    "其他",
+    "Sonstiges",
+    "Autre",
+    "その他"
+  ],
+  "Matched with {name}. Confirm when you are ready to begin.": [
+    "已與 {name} 配對。準備好開始時請確認。",
+    "Mit {name} vermittelt. Bitte bestätigen, wenn Sie bereit sind.",
+    "Mise en relation avec {name}. Confirmez lorsque vous êtes prêt.",
+    "{name}さんとマッチしました。準備ができたら確認してください。"
+  ],
+  "New message from {name}": [
+    "收到 {name} 的新訊息",
+    "Neue Nachricht von {name}",
+    "Nouveau message de {name}",
+    "{name}さんからの新着メッセージ"
+  ],
+  "Both participants are ready. Your time together has begun.": [
+    "雙方已準備好，服務計時已開始。",
+    "Beide sind bereit. Ihre gemeinsame Zeit hat begonnen.",
+    "Les deux personnes sont prêtes. Votre temps ensemble a commencé.",
+    "双方の準備が整い、計時を開始しました。"
+  ],
+  "Finished. The other participant must review and confirm the recorded time.": [
+    "服務已結束，另一位參與者須核對並確認時間。",
+    "Beendet. Die andere Person muss die Zeit prüfen und bestätigen.",
+    "Terminé. L’autre participant doit vérifier et confirmer la durée.",
+    "終了しました。相手が記録時間を確認する必要があります。"
+  ],
+  "Completed. Time Credit has been spent for the confirmed service.": [
+    "已完成，已扣除確認服務的時間積分。",
+    "Abgeschlossen. Zeitguthaben für die bestätigte Hilfe abgebucht.",
+    "Terminé. Le crédit a été débité pour le service confirmé.",
+    "完了しました。確認済みのサービス分を差し引きました。"
+  ],
+  "Cancelled. Your reserved time has been released.": [
+    "已取消，預留時間已釋放。",
+    "Abgesagt. Ihre reservierte Zeit wurde freigegeben.",
+    "Annulé. Votre temps réservé a été libéré.",
+    "キャンセルされ、予約時間を解除しました。"
+  ],
+  "A problem has been reported. Credits remain held for administrator review.": [
+    "已收到問題報告，積分維持預留，等待管理員審核。",
+    "Problem gemeldet. Guthaben bleibt bis zur Prüfung reserviert.",
+    "Un problème a été signalé. Le crédit reste réservé jusqu’à l’examen.",
+    "問題が報告されました。管理者の確認まで予約を維持します。"
+  ],
+  "Completed. Time Credit earned has been added to your account.": [
+    "已完成，賺取的時間積分已存入帳戶。",
+    "Abgeschlossen. Verdientes Zeitguthaben wurde gutgeschrieben.",
+    "Terminé. Le crédit gagné a été ajouté à votre compte.",
+    "完了しました。獲得クレジットを加算しました。"
+  ],
+  "Start confirmation updated. Both participants must be ready.": [
+    "開始確認已更新，雙方均須準備就緒。",
+    "Startbestätigung aktualisiert. Beide müssen bereit sein.",
+    "Confirmation mise à jour. Les deux participants doivent être prêts.",
+    "開始確認を更新しました。双方の準備が必要です。"
+  ],
+  "Time together has begun.": [
+    "服務計時已開始。",
+    "Die gemeinsame Zeit hat begonnen.",
+    "Votre temps ensemble a commencé.",
+    "計時を開始しました。"
+  ],
+  "Finished. Please review the completion details.": [
+    "服務已結束，請核對完成詳情。",
+    "Beendet. Bitte Abschlussdetails prüfen.",
+    "Terminé. Vérifiez les détails de fin.",
+    "終了しました。完了内容をご確認ください。"
+  ],
+  "A problem has been reported for administrator review.": [
+    "已向管理員報告問題，等待審核。",
+    "Ein Problem wurde zur Prüfung gemeldet.",
+    "Un problème a été signalé à l’administrateur.",
+    "管理者に問題が報告されました。"
+  ],
+  "This task was cancelled.": [
+    "此任務已取消。",
+    "Diese Aufgabe wurde abgesagt.",
+    "Cette tâche a été annulée.",
+    "この依頼はキャンセルされました。"
+  ],
+  "Dispute requires administrator review.": [
+    "爭議需要管理員審核。",
+    "Streitfall benötigt Prüfung.",
+    "Le litige nécessite un examen.",
+    "異議について管理者の確認が必要です。"
+  ],
+  "Please complete all required fields.": [
+    "請填寫所有必填欄位。",
+    "Bitte alle Pflichtfelder ausfüllen.",
+    "Veuillez remplir tous les champs obligatoires.",
+    "必須項目をすべて入力してください。"
+  ],
+  "Enter a valid whole number within the allowed range.": [
+    "請輸入允許範圍內的有效整數。",
+    "Ganze Zahl im erlaubten Bereich eingeben.",
+    "Saisissez un entier dans la plage autorisée.",
+    "指定範囲内の整数を入力してください。"
+  ],
+  "Please sign in to continue.": [
+    "請先登入以繼續。",
+    "Bitte anmelden, um fortzufahren.",
+    "Connectez-vous pour continuer.",
+    "続けるにはログインしてください。"
+  ],
+  "Please sign in again.": [
+    "請重新登入。",
+    "Bitte erneut anmelden.",
+    "Veuillez vous reconnecter.",
+    "もう一度ログインしてください。"
+  ],
+  "Your account is suspended. Contact the community administrator.": [
+    "您的帳戶已停用，請聯絡社區管理員。",
+    "Ihr Konto ist gesperrt. Kontaktieren Sie die Verwaltung.",
+    "Votre compte est suspendu. Contactez l’administrateur.",
+    "アカウントは停止中です。管理者にお問い合わせください。"
+  ],
+  "Too many attempts. Please wait 15 minutes before trying again.": [
+    "嘗試次數過多，請等候 15 分鐘後再試。",
+    "Zu viele Versuche. Bitte 15 Minuten warten.",
+    "Trop de tentatives. Attendez 15 minutes.",
+    "試行回数が多すぎます。15分後にお試しください。"
+  ],
+  "Administrator access required.": [
+    "需要管理員權限。",
+    "Administratorzugriff erforderlich.",
+    "Accès administrateur requis.",
+    "管理者権限が必要です。"
+  ],
+  "Please read and agree to the current guidelines before continuing.": [
+    "請先閱讀並同意現行指引。",
+    "Bitte aktuelle Richtlinien lesen und zustimmen.",
+    "Veuillez lire et accepter les directives actuelles.",
+    "現在の規約を読み、同意してください。"
+  ],
+  "Please confirm that you understand this task.": [
+    "請確認您理解此任務。",
+    "Bitte das Verständnis dieser Aufgabe bestätigen.",
+    "Confirmez que vous comprenez cette tâche.",
+    "依頼内容を理解したことを確認してください。"
+  ],
+  "Choose a supported language.": [
+    "請選擇支援的語言。",
+    "Eine unterstützte Sprache wählen.",
+    "Choisissez une langue disponible.",
+    "対応言語を選択してください。"
+  ],
+  "Choose your age range.": [
+    "請選擇年齡組別。",
+    "Bitte Altersgruppe wählen.",
+    "Choisissez votre tranche d’âge.",
+    "年齢層を選択してください。"
+  ],
+  "Enter a valid email address.": [
+    "請輸入有效的電郵地址。",
+    "Gültige E-Mail-Adresse eingeben.",
+    "Saisissez une adresse e-mail valide.",
+    "有効なメールアドレスを入力してください。"
+  ],
+  "Use a password with at least 12 characters.": [
+    "密碼須包含至少 12 個字元。",
+    "Passwort mit mindestens 12 Zeichen verwenden.",
+    "Utilisez un mot de passe d’au moins 12 caractères.",
+    "12文字以上のパスワードを使用してください。"
+  ],
+  "This email is already registered. Sign in or recover your account.": [
+    "此電郵已註冊。請登入或復原帳戶。",
+    "Diese E-Mail ist registriert. Anmelden oder Konto wiederherstellen.",
+    "Cet e-mail est déjà inscrit. Connectez-vous ou récupérez le compte.",
+    "このメールは登録済みです。ログインまたはアカウント復旧を行ってください。"
+  ],
+  "Email or password is incorrect.": [
+    "電郵或密碼不正確。",
+    "E-Mail oder Passwort falsch.",
+    "E-mail ou mot de passe incorrect.",
+    "メールアドレスまたはパスワードが違います。"
+  ],
+  "Email or recovery key is incorrect.": [
+    "電郵或復原密鑰不正確。",
+    "E-Mail oder Wiederherstellungsschlüssel falsch.",
+    "E-mail ou clé de récupération incorrect.",
+    "メールアドレスまたは復旧キーが違います。"
+  ],
+  "This account is suspended.": [
+    "此帳戶已停用。",
+    "Dieses Konto ist gesperrt.",
+    "Ce compte est suspendu.",
+    "このアカウントは停止中です。"
+  ],
+  "Complete your profile and agree to the guidelines before participating.": [
+    "參與前請完成個人檔案並同意指引。",
+    "Vor Teilnahme Profil vervollständigen und Richtlinien zustimmen.",
+    "Complétez votre profil et acceptez les directives avant de participer.",
+    "参加前にプロフィールを完成し、規約に同意してください。"
+  ],
+  "Choose a future date and time.": [
+    "請選擇未來的日期及時間。",
+    "Bitte zukünftigen Zeitpunkt wählen.",
+    "Choisissez une date et heure futures.",
+    "未来の日時を選択してください。"
+  ],
+  "Choose an available category.": [
+    "請選擇可用的類別。",
+    "Eine verfügbare Kategorie wählen.",
+    "Choisissez une catégorie disponible.",
+    "利用可能なカテゴリを選択してください。"
+  ],
+  "You cannot accept your own request.": [
+    "您不能接受自己的請求。",
+    "Sie können Ihre eigene Anfrage nicht annehmen.",
+    "Vous ne pouvez pas accepter votre propre demande.",
+    "自分の依頼は引き受けられません。"
+  ],
+  "This request is no longer available.": [
+    "此請求已不可接受。",
+    "Diese Anfrage ist nicht mehr verfügbar.",
+    "Cette demande n’est plus disponible.",
+    "この依頼はもう募集していません。"
+  ],
+  "Your start confirmation is already saved or this task cannot start.": [
+    "開始確認已儲存，或此任務目前無法開始。",
+    "Startbestätigung bereits gespeichert oder Start nicht möglich.",
+    "Confirmation déjà enregistrée ou démarrage impossible.",
+    "開始確認は保存済みか、開始できない状態です。"
+  ],
+  "This task is no longer in progress.": [
+    "此任務已不在進行中。",
+    "Diese Aufgabe läuft nicht mehr.",
+    "Cette tâche n’est plus en cours.",
+    "この依頼は進行中ではありません。"
+  ],
+  "Only task participants can do this.": [
+    "只有任務參與者可執行此操作。",
+    "Nur Beteiligte dürfen dies tun.",
+    "Seuls les participants peuvent le faire.",
+    "参加者のみ操作できます。"
+  ],
+  "This task is private to its participants.": [
+    "此任務僅限參與者查看。",
+    "Diese Aufgabe ist nur für Beteiligte sichtbar.",
+    "Cette tâche est privée aux participants.",
+    "この依頼は参加者のみ閲覧できます。"
+  ],
+  "This action has already been recorded. Refresh to see the latest state.": [
+    "此操作已記錄，請重新整理查看最新狀態。",
+    "Aktion bereits erfasst. Für aktuellen Stand neu laden.",
+    "Action déjà enregistrée. Actualisez pour voir l’état actuel.",
+    "操作は記録済みです。更新して最新の状態をご確認ください。"
+  ],
+  "We could not save this change. Your existing records are safe. Please refresh and try again.": [
+    "無法儲存更改。現有紀錄不受影響，請重新整理後再試。",
+    "Änderung nicht gespeichert. Bestehende Daten sind sicher. Bitte neu laden und erneut versuchen.",
+    "Impossible d’enregistrer. Vos données existantes sont conservées. Actualisez et réessayez.",
+    "保存できませんでした。既存の記録は保持されています。更新して再試行してください。"
+  ],
+  "Keyboard: focus the box, press Space to start a stroke, use arrow keys, then press Space to finish.": [
+    "鍵盤操作：選取簽名框，按空白鍵開始筆劃，以方向鍵繪畫，再按空白鍵結束。",
+    "Tastatur: Feld fokussieren, Leertaste zum Start, Pfeiltasten zum Zeichnen, Leertaste zum Beenden.",
+    "Clavier : sélectionnez le cadre, Espace pour commencer, flèches pour tracer, Espace pour terminer.",
+    "キーボード：枠を選択し、スペースで描画開始、矢印キーで描画、スペースで終了します。"
+  ],
+  "Member not found.": [
+    "找不到會員。",
+    "Mitglied nicht gefunden.",
+    "Membre introuvable.",
+    "会員が見つかりません。"
+  ],
+  "Task not found.": [
+    "找不到任務。",
+    "Aufgabe nicht gefunden.",
+    "Tâche introuvable.",
+    "依頼が見つかりません。"
+  ],
+  "Please submit this form from the application.": [
+    "請從應用程式提交此表格。",
+    "Bitte Formular aus der Anwendung senden.",
+    "Envoyez ce formulaire depuis l’application.",
+    "アプリから送信してください。"
+  ],
+  "Unsupported request.": [
+    "不支援此請求。",
+    "Nicht unterstützte Anfrage.",
+    "Requête non prise en charge.",
+    "対応していないリクエストです。"
+  ],
+  "File is too large.": [
+    "檔案過大。",
+    "Datei ist zu groß.",
+    "Fichier trop volumineux.",
+    "ファイルが大きすぎます。"
+  ],
+  "Request is too large.": [
+    "提交內容過大。",
+    "Anfrage ist zu groß.",
+    "Requête trop volumineuse.",
+    "送信内容が大きすぎます。"
+  ],
+  "Invalid request body.": [
+    "提交內容無效。",
+    "Ungültiger Anfrageinhalt.",
+    "Contenu de requête invalide.",
+    "送信内容が無効です。"
+  ],
+  "Method not allowed.": [
+    "不允許此操作方式。",
+    "Methode nicht erlaubt.",
+    "Méthode non autorisée.",
+    "この操作は許可されていません。"
+  ],
+  "The community administrator must finish setup before registration opens.": [
+    "管理員須完成社區設定後才可註冊。",
+    "Die Verwaltung muss die Einrichtung vor der Anmeldung abschließen.",
+    "L’administrateur doit terminer la configuration avant les inscriptions.",
+    "登録開始前に管理者による設定が必要です。"
+  ],
+  "Not found.": [
+    "找不到內容。",
+    "Nicht gefunden.",
+    "Introuvable.",
+    "見つかりません。"
+  ],
+  "Setup is already complete.": [
+    "設定已完成。",
+    "Einrichtung bereits abgeschlossen.",
+    "Configuration déjà terminée.",
+    "設定は完了しています。"
+  ],
+  "A valid administrator setup key is required.": [
+    "請輸入有效的管理員設定密鑰。",
+    "Gültiger Einrichtungsschlüssel erforderlich.",
+    "Une clé de configuration valide est requise.",
+    "有効な管理者設定キーが必要です。"
+  ],
+  "Enter a valid email.": [
+    "請輸入有效電郵。",
+    "Gültige E-Mail eingeben.",
+    "Saisissez un e-mail valide.",
+    "有効なメールアドレスを入力してください。"
+  ],
+  "Choose a PNG, JPEG or WebP image.": [
+    "請選擇 PNG、JPEG 或 WebP 圖片。",
+    "PNG-, JPEG- oder WebP-Bild wählen.",
+    "Choisissez une image PNG, JPEG ou WebP.",
+    "PNG・JPEG・WebPの画像を選択してください。"
+  ],
+  "Only the other participant can confirm an unfinished settlement.": [
+    "只有另一位參與者可確認尚未結算的任務。",
+    "Nur die andere Person kann die offene Abrechnung bestätigen.",
+    "Seul l’autre participant peut confirmer le règlement en attente.",
+    "未精算分を確認できるのは相手の参加者のみです。"
+  ],
+  "Only the requester can cancel before a task begins.": [
+    "只有請求人可在任務開始前取消。",
+    "Nur die anfragende Person kann vor Beginn absagen.",
+    "Seul le demandeur peut annuler avant le début.",
+    "開始前のキャンセルは依頼者のみ行えます。"
+  ],
+  "A started task must be reported as a dispute.": [
+    "已開始的任務須透過爭議報告處理。",
+    "Eine begonnene Aufgabe muss als Streitfall gemeldet werden.",
+    "Une tâche commencée doit faire l’objet d’un litige.",
+    "開始済みの依頼は異議として報告してください。"
+  ],
+  "This task cannot be disputed at its current stage.": [
+    "此任務在目前階段不能提出爭議。",
+    "In diesem Stadium ist kein Streitfall möglich.",
+    "Aucun litige ne peut être ouvert à ce stade.",
+    "現在の段階では異議を申し立てられません。"
+  ],
+  "Messages open after a helper accepts.": [
+    "幫忙者接受後才可傳送訊息。",
+    "Nachrichten nach Annahme verfügbar.",
+    "Les messages s’ouvrent après acceptation.",
+    "引き受ける人が決まるとメッセージを送れます。"
+  ],
+  "Reviews are available after completion.": [
+    "完成任務後才可評價。",
+    "Bewertungen erst nach Abschluss möglich.",
+    "Les avis sont disponibles après la fin.",
+    "完了後に評価できます。"
+  ],
+  "Unknown action.": [
+    "未知操作。",
+    "Unbekannte Aktion.",
+    "Action inconnue.",
+    "不明な操作です。"
+  ],
+  "You cannot suspend your own administrator account.": [
+    "您不能停用自己的管理員帳戶。",
+    "Sie können Ihr eigenes Administratorkonto nicht sperren.",
+    "Vous ne pouvez pas suspendre votre propre compte administrateur.",
+    "自分の管理者アカウントは停止できません。"
+  ],
+  "Adjustment cannot be zero.": [
+    "調整金額不能為零。",
+    "Anpassung darf nicht null sein.",
+    "L’ajustement ne peut pas être nul.",
+    "調整値をゼロにはできません。"
+  ],
+  "This task is already final.": [
+    "此任務已結束。",
+    "Diese Aufgabe ist bereits endgültig abgeschlossen.",
+    "Cette tâche est déjà définitive.",
+    "この依頼は確定済みです。"
+  ],
+  "Only a disputed, finished task can be settled.": [
+    "只有已結束且處於爭議中的任務可進行此結算。",
+    "Nur beendete Streitfälle können abgerechnet werden.",
+    "Seule une tâche terminée en litige peut être réglée.",
+    "終了済みで異議審査中の依頼のみ精算できます。"
+  ],
+  "Unknown administration action.": [
+    "未知管理操作。",
+    "Unbekannte Verwaltungsaktion.",
+    "Action administrative inconnue.",
+    "不明な管理操作です。"
+  ],
+  "Administrator": [
+    "管理員",
+    "Administrator",
+    "Administrateur",
+    "管理者"
+  ],
+  "Member": [
+    "會員",
+    "Mitglied",
+    "Membre",
+    "会員"
+  ],
+  "Recorded": [
+    "已記錄",
+    "Erfasst",
+    "Enregistré",
+    "記録済み"
+  ],
+  "Transfer": [
+    "轉帳",
+    "Übertragung",
+    "Transfert",
+    "振替"
+  ],
+  "Community onboarding policy at registration": [
+    "註冊時的社區迎新政策",
+    "Startregel bei Anmeldung",
+    "Politique d’accueil à l’inscription",
+    "登録時の初期クレジット設定"
+  ],
+  "Time held for request": [
+    "為請求預留時間",
+    "Zeit für Anfrage reserviert",
+    "Temps réservé pour la demande",
+    "依頼用の予約時間"
+  ],
+  "Confirmed service duration in seconds": [
+    "已確認服務秒數",
+    "Bestätigte Hilfsdauer in Sekunden",
+    "Durée confirmée en secondes",
+    "確認済みの提供時間（秒）"
+  ],
+  "I am ready to start": [
+    "我已準備好開始",
+    "Ich bin bereit",
+    "Je suis prêt à commencer",
+    "開始の準備ができました"
+  ],
+  "Add a photo": [
+    "加入相片",
+    "Foto hinzufügen",
+    "Ajouter une photo",
+    "写真を追加"
+  ],
+  "Open photo": [
+    "開啟相片",
+    "Foto öffnen",
+    "Ouvrir la photo",
+    "写真を開く"
+  ],
+  "Photo shared in this task": [
+    "此任務分享的相片",
+    "Foto dieser Aufgabe",
+    "Photo partagée dans cette tâche",
+    "この依頼で共有された写真"
+  ],
+  "Photo preview": [
+    "相片預覽",
+    "Fotovorschau",
+    "Aperçu de la photo",
+    "写真のプレビュー"
+  ],
+  "Close photo": [
+    "關閉相片",
+    "Foto schließen",
+    "Fermer la photo",
+    "写真を閉じる"
+  ],
+  "Load older messages": [
+    "載入較早訊息",
+    "Ältere Nachrichten laden",
+    "Charger les anciens messages",
+    "以前のメッセージを表示"
+  ],
+  "Photos are shared only with the other task participant. You can send a photo with or without a message.": [
+    "相片只會分享給另一位任務參與者。您可單獨傳送相片，或同時加入文字訊息。",
+    "Fotos werden nur mit der anderen beteiligten Person geteilt. Sie können ein Foto mit oder ohne Nachricht senden.",
+    "Les photos sont partagées uniquement avec l’autre participant. Vous pouvez envoyer une photo avec ou sans message.",
+    "写真は依頼の相手だけに共有されます。写真のみ、または文章と一緒に送信できます。"
+  ],
+  "Preparing photo…": [
+    "正在處理相片…",
+    "Foto wird vorbereitet…",
+    "Préparation de la photo…",
+    "写真を準備中…"
+  ],
+  "Sending…": [
+    "傳送中…",
+    "Wird gesendet…",
+    "Envoi…",
+    "送信中…"
+  ],
+  "Write a message or choose a photo.": [
+    "請輸入訊息或選擇相片。",
+    "Nachricht schreiben oder Foto wählen.",
+    "Écrivez un message ou choisissez une photo.",
+    "メッセージを入力するか、写真を選択してください。"
+  ],
+  "Photo is too large. Choose a smaller photo.": [
+    "相片過大，請選擇較小的相片。",
+    "Foto zu groß. Bitte ein kleineres wählen.",
+    "Photo trop volumineuse. Choisissez une photo plus petite.",
+    "写真が大きすぎます。小さい写真を選択してください。"
+  ],
+  "Choose a JPEG, PNG or WebP photo.": [
+    "請選擇 JPEG、PNG 或 WebP 相片。",
+    "Bitte JPEG-, PNG- oder WebP-Foto wählen.",
+    "Choisissez une photo JPEG, PNG ou WebP.",
+    "JPEG・PNG・WebPの写真を選択してください。"
+  ],
+  "Invalid photo. Please choose another image.": [
+    "相片無效，請選擇另一張圖片。",
+    "Ungültiges Foto. Bitte ein anderes wählen.",
+    "Photo invalide. Choisissez une autre image.",
+    "写真が無効です。別の画像を選択してください。"
+  ],
+  "Current location map": [
+    "目前位置地圖",
+    "Karte des aktuellen Standorts",
+    "Carte de votre position actuelle",
+    "現在地の地図"
+  ],
+  "Use my current location": [
+    "使用我目前的位置",
+    "Meinen aktuellen Standort verwenden",
+    "Utiliser ma position actuelle",
+    "現在地を使用"
+  ],
+  "Finding your location…": [
+    "正在尋找您的位置⋯",
+    "Standort wird ermittelt…",
+    "Recherche de votre position…",
+    "現在地を取得中…"
+  ],
+  "Show your position using OpenStreetMap. Your location is sent to the map provider to display the map, but is not saved in your profile or shared with members.": [
+    "使用 OpenStreetMap 顯示您的位置。位置會傳送至地圖供應商以顯示地圖，但不會儲存在個人檔案或與其他會員分享。",
+    "Zeigen Sie Ihren Standort mit OpenStreetMap an. Ihr Standort wird zur Kartenanzeige an den Kartenanbieter gesendet, aber weder in Ihrem Profil gespeichert noch mit Mitgliedern geteilt.",
+    "Affichez votre position avec OpenStreetMap. Elle est transmise au fournisseur de la carte pour l’affichage, mais n’est ni enregistrée dans votre profil ni partagée avec les membres.",
+    "OpenStreetMap で現在地を表示します。地図を表示するために位置情報が地図提供者に送信されますが、プロフィールへの保存や他のメンバーへの共有は行いません。"
+  ],
+  "Location access was denied. Allow location in your device settings, or enter your service area above.": [
+    "位置存取被拒絕。請在裝置設定中允許位置存取，或在上方輸入服務地區。",
+    "Der Standortzugriff wurde abgelehnt. Erlauben Sie ihn in den Geräteeinstellungen oder geben Sie oben Ihr Einsatzgebiet ein.",
+    "L’accès à la position a été refusé. Autorisez-le dans les réglages de votre appareil ou saisissez votre zone ci-dessus.",
+    "位置情報へのアクセスが拒否されました。端末の設定で許可するか、上の欄に活動地域を入力してください。"
+  ],
+  "Your location could not be found. Check that location services are on and try again, or enter your service area above.": [
+    "無法找到您的位置。請確認已開啟定位服務並重試，或在上方輸入服務地區。",
+    "Ihr Standort konnte nicht ermittelt werden. Prüfen Sie die Standortdienste und versuchen Sie es erneut oder geben Sie oben Ihr Einsatzgebiet ein.",
+    "Votre position est introuvable. Vérifiez que la localisation est activée et réessayez, ou saisissez votre zone ci-dessus.",
+    "現在地を取得できませんでした。位置情報サービスを有効にして再試行するか、上の欄に活動地域を入力してください。"
+  ],
+  "The pin shows your current position. Enter your town or neighbourhood in the service area field above, then save your profile.": [
+    "圖釘顯示您目前的位置。請在上方的服務地區欄位輸入城鎮或社區名稱，然後儲存個人檔案。",
+    "Die Markierung zeigt Ihren aktuellen Standort. Tragen Sie oben Ihren Ort oder Stadtteil ein und speichern Sie Ihr Profil.",
+    "Le repère indique votre position actuelle. Saisissez votre ville ou quartier dans le champ ci-dessus, puis enregistrez votre profil.",
+    "ピンは現在地を示しています。上の活動地域欄に町や地区の名前を入力し、プロフィールを保存してください。"
+  ],
+  "Open larger map": [
+    "開啟大地圖",
+    "Größere Karte öffnen",
+    "Ouvrir une carte plus grande",
+    "大きな地図を開く"
+  ],
+  "Open service area map": [
+    "開啟服務地區地圖",
+    "Karte des Einsatzgebiets öffnen",
+    "Ouvrir la carte de la zone de service",
+    "サービス地域の地図を開く"
+  ],
+  "Current location needs a secure connection. Open the published app, or enter your service area manually.": [
+    "目前位置功能需要安全連線。請開啟已發佈的應用程式，或手動輸入服務地區。",
+    "Der aktuelle Standort benötigt eine sichere Verbindung. Öffnen Sie die veröffentlichte App oder geben Sie Ihr Einsatzgebiet manuell ein.",
+    "La position actuelle nécessite une connexion sécurisée. Ouvrez l’application publiée ou saisissez manuellement votre zone de service.",
+    "現在地の取得には安全な接続が必要です。公開済みアプリを開くか、サービス地域を手動で入力してください。"
+  ],
+  "This browser cannot provide a current location. Enter your service area manually.": [
+    "此瀏覽器無法提供目前位置。請手動輸入服務地區。",
+    "Dieser Browser kann den aktuellen Standort nicht bereitstellen. Geben Sie Ihr Einsatzgebiet manuell ein.",
+    "Ce navigateur ne peut pas fournir votre position actuelle. Saisissez manuellement votre zone de service.",
+    "このブラウザでは現在地を取得できません。サービス地域を手動で入力してください。"
+  ],
+  "Hide map": [
+    "隱藏地圖",
+    "Karte ausblenden",
+    "Masquer la carte",
+    "地図を閉じる"
+  ],
+  "Open notifications — {count} unread": [
+    "開啟通知：{count} 則未讀",
+    "Benachrichtigungen öffnen — {count} ungelesen",
+    "Ouvrir les notifications — {count} non lues",
+    "通知を開く — 未読 {count} 件"
+  ],
+  "Recommended for you": [
+    "為你推薦",
+    "Für dich empfohlen",
+    "Recommandé pour vous",
+    "あなたへのおすすめ"
+  ],
+  "Same service area": [
+    "相同服務地區",
+    "Gleiches Gebiet",
+    "Même secteur",
+    "同じ地域"
+  ],
+  "Matches your skills": [
+    "符合你的技能",
+    "Passt zu deinen Fähigkeiten",
+    "Correspond à vos compétences",
+    "スキルに合っています"
+  ],
+  "Matches your preferences": [
+    "符合你的偏好",
+    "Passt zu deinen Vorlieben",
+    "Correspond à vos préférences",
+    "希望に合っています"
+  ],
+  "Similar to tasks you helped with": [
+    "類似你曾協助的任務",
+    "Ähnlich wie frühere Aufgaben",
+    "Semblable à vos aides précédentes",
+    "以前の活動に似ています"
+  ],
+  "Matches how you prefer to meet": [
+    "符合你的會面偏好",
+    "Passt zur gewünschten Begegnung",
+    "Correspond au mode de rencontre souhaité",
+    "希望する交流方法です"
+  ],
+  "Matches your preferred availability": [
+    "符合你的可用時間",
+    "Passt zu deiner Verfügbarkeit",
+    "Correspond à vos disponibilités",
+    "希望する日程に合っています"
+  ],
+  "Describe the help you need": [
+    "描述你需要的協助",
+    "Beschreibe die benötigte Hilfe",
+    "Décrivez l’aide souhaitée",
+    "必要な手助けを説明"
+  ],
+  "Optional: write in your own words, then review the suggested details.": [
+    "選用：用自己的話描述，然後檢查建議的內容。",
+    "Optional: Beschreibe dein Anliegen und prüfe dann die Vorschläge.",
+    "Facultatif : décrivez votre besoin, puis vérifiez les suggestions.",
+    "任意：自分の言葉で説明し、提案された内容を確認してください。"
+  ],
+  "Your description": [
+    "你的描述",
+    "Deine Beschreibung",
+    "Votre description",
+    "説明"
+  ],
+  "Send my description to Groq for processing. I will leave out private contact details.": [
+    "我同意將描述傳送給 Groq 處理，並不會包含私人聯絡資料。",
+    "Meine Beschreibung zur Verarbeitung an Groq senden. Ich lasse private Kontaktdaten weg.",
+    "Envoyer ma description à Groq. Je n’inclus pas de coordonnées privées.",
+    "説明を Groq に送信して処理することに同意します。個人の連絡先は含めません。"
+  ],
+  "Preparing suggestions…": [
+    "正在準備建議…",
+    "Vorschläge werden vorbereitet…",
+    "Préparation des suggestions…",
+    "提案を準備中…"
+  ],
+  "Prepare my request": [
+    "整理我的請求",
+    "Anfrage vorbereiten",
+    "Préparer ma demande",
+    "依頼を整理"
+  ],
+  "Suggestions are unavailable right now. You can complete the form yourself.": [
+    "目前無法提供建議，你仍可自行填寫表格。",
+    "Vorschläge sind gerade nicht verfügbar. Du kannst das Formular selbst ausfüllen.",
+    "Les suggestions sont indisponibles. Vous pouvez remplir le formulaire vous-même.",
+    "現在、提案を利用できません。フォームに直接入力できます。"
+  ],
+  "Suggested category added. You can change it.": [
+    "已加入建議類別，你可以更改。",
+    "Kategorie vorgeschlagen. Du kannst sie ändern.",
+    "Catégorie proposée. Vous pouvez la modifier.",
+    "カテゴリを提案しました。変更できます。"
+  ],
+  "Please choose the category that fits best.": [
+    "請選擇最合適的類別。",
+    "Wähle die passendste Kategorie.",
+    "Choisissez la catégorie la plus adaptée.",
+    "最も合うカテゴリを選んでください。"
+  ],
+  "Review every field below. Your request has not been posted.": [
+    "請檢查以下每一項資料。你的請求尚未發佈。",
+    "Prüfe alle Felder. Deine Anfrage wurde noch nicht veröffentlicht.",
+    "Vérifiez tous les champs. Votre demande n’est pas encore publiée.",
+    "各項目を確認してください。依頼はまだ投稿されていません。"
+  ],
+  "Suggest a category": [
+    "建議類別",
+    "Kategorie vorschlagen",
+    "Suggérer une catégorie",
+    "カテゴリを提案"
+  ],
+  "To use suggestions, give permission in “Describe the help you need”.": [
+    "如要使用建議，請在「描述你需要的協助」中同意處理。",
+    "Erlaube die Verarbeitung unter „Beschreibe die benötigte Hilfe“.",
+    "Autorisez le traitement dans « Décrivez l’aide souhaitée ».",
+    "提案を使うには「必要な手助けを説明」で同意してください。"
+  ],
+  "Clear details": [
+    "清除內容",
+    "Angaben löschen",
+    "Effacer les détails",
+    "内容を消去"
+  ],
+  "When you prefer to help": [
+    "你方便協助的時間",
+    "Wann du gerne hilfst",
+    "Quand souhaitez-vous aider ?",
+    "手助けできる時間"
+  ],
+  "These private preferences help arrange your recommendations. You can still browse every open request.": [
+    "這些私人偏好用於排列推薦任務，你仍可瀏覽所有公開請求。",
+    "Diese privaten Angaben ordnen Empfehlungen. Alle offenen Anfragen bleiben sichtbar.",
+    "Ces préférences privées classent les recommandations. Toutes les demandes restent accessibles.",
+    "非公開の希望をおすすめの順序に使います。すべての依頼も閲覧できます。"
+  ],
+  "Mon": [
+    "星期一",
+    "Mo",
+    "Lun",
+    "月曜日"
+  ],
+  "Tue": [
+    "星期二",
+    "Di",
+    "Mar",
+    "火曜日"
+  ],
+  "Wed": [
+    "星期三",
+    "Mi",
+    "Mer",
+    "水曜日"
+  ],
+  "Thu": [
+    "星期四",
+    "Do",
+    "Jeu",
+    "木曜日"
+  ],
+  "Fri": [
+    "星期五",
+    "Fr",
+    "Ven",
+    "金曜日"
+  ],
+  "Sat": [
+    "星期六",
+    "Sa",
+    "Sam",
+    "土曜日"
+  ],
+  "Sun": [
+    "星期日",
+    "So",
+    "Dim",
+    "日曜日"
+  ],
+  "Time zone": [
+    "時區",
+    "Zeitzone",
+    "Fuseau horaire",
+    "タイムゾーン"
+  ],
+  "Save preferences": [
+    "儲存偏好",
+    "Vorlieben speichern",
+    "Enregistrer les préférences",
+    "希望を保存"
+  ],
+  "Community insights": [
+    "社區概況",
+    "Gemeinschaftsübersicht",
+    "Aperçu de la communauté",
+    "コミュニティの状況"
+  ],
+  "Refresh insights": [
+    "更新概況",
+    "Übersicht aktualisieren",
+    "Actualiser l’aperçu",
+    "状況を更新"
+  ],
+  "Last 30 days": [
+    "過去30天",
+    "Letzte 30 Tage",
+    "30 derniers jours",
+    "過去30日間"
+  ],
+  "Requests and recent helpers": [
+    "請求及近期協助者",
+    "Anfragen und kürzlich Helfende",
+    "Demandes et aidants récents",
+    "依頼と最近の協力者"
+  ],
+  "Recent helpers are members who completed requests created in this period; this does not measure current availability.": [
+    "近期協助者是曾完成此期間建立之請求的會員，並不代表目前可用人數。",
+    "Gezählt werden Helfende bei erledigten Anfragen aus diesem Zeitraum, nicht aktuell verfügbare Personen.",
+    "Les aidants ont terminé des demandes créées sur cette période. Cela ne mesure pas leur disponibilité actuelle.",
+    "この期間に作成された依頼を完了した会員数です。現在の空き状況を示すものではありません。"
+  ],
+  "Requests": [
+    "請求",
+    "Anfragen",
+    "Demandes",
+    "依頼"
+  ],
+  "Open requests": [
+    "待配對請求",
+    "Offene Anfragen",
+    "Demandes ouvertes",
+    "募集中の依頼"
+  ],
+  "Recent helpers": [
+    "近期協助者",
+    "Kürzlich Helfende",
+    "Aidants récents",
+    "最近の協力者"
+  ],
+  "Areas with open requests": [
+    "仍有待配對請求的地區",
+    "Gebiete mit offenen Anfragen",
+    "Secteurs avec demandes ouvertes",
+    "募集中の依頼がある地域"
+  ],
+  "Daily participation": [
+    "每日參與情況",
+    "Tägliche Beteiligung",
+    "Participation quotidienne",
+    "日別の参加状況"
+  ],
+  "Popular requested hours (UTC)": [
+    "常見請求時段（UTC）",
+    "Häufige Wunschzeiten (UTC)",
+    "Horaires demandés (UTC)",
+    "希望時間帯（UTC）"
+  ],
+  "Waiting more than seven days": [
+    "等候超過七天",
+    "Länger als sieben Tage offen",
+    "En attente depuis plus de sept jours",
+    "7日以上待っている依頼"
+  ],
+  "Review recommended": [
+    "建議審查",
+    "Prüfung empfohlen",
+    "Examen recommandé",
+    "確認を推奨"
+  ],
+  "These patterns can have ordinary explanations. Review the evidence before taking any action. No account or credit changes are made automatically.": [
+    "這些模式可能有合理原因。請先查看紀錄再採取行動。系統不會自動更改帳戶或時間信用。",
+    "Diese Muster können normale Gründe haben. Prüfe die Belege. Konten und Zeitguthaben werden nicht automatisch geändert.",
+    "Ces tendances peuvent avoir des raisons ordinaires. Examinez les preuves. Aucun compte ni crédit n’est modifié automatiquement.",
+    "通常の理由でも起こる傾向です。記録を確認してから判断してください。アカウントや時間残高は自動変更されません。"
+  ],
+  "No patterns awaiting review.": [
+    "沒有待審查的模式。",
+    "Keine Muster zur Prüfung.",
+    "Aucune tendance à examiner.",
+    "確認待ちの傾向はありません。"
+  ],
+  "Suggestion and review settings": [
+    "建議及審查設定",
+    "Vorschlags- und Prüfeinstellungen",
+    "Réglages des suggestions et examens",
+    "提案と確認の設定"
+  ],
+  "Enable optional description processing": [
+    "啟用選用的描述處理",
+    "Optionale Beschreibungsverarbeitung aktivieren",
+    "Activer le traitement facultatif des descriptions",
+    "任意の説明処理を有効にする"
+  ],
+  "Daily request limit": [
+    "每日處理次數上限",
+    "Tägliches Anfragelimit",
+    "Limite quotidienne",
+    "1日の処理上限"
+  ],
+  "Repeated exchanges threshold": [
+    "重複互助次數門檻",
+    "Schwelle wiederholter Austausche",
+    "Seuil d’échanges répétés",
+    "繰り返しの交流の基準回数"
+  ],
+  "Short completion threshold (seconds)": [
+    "短時間完成門檻（秒）",
+    "Kurze Erledigung (Sekunden)",
+    "Seuil de durée courte (secondes)",
+    "短時間完了の基準（秒）"
+  ],
+  "Keep the Groq account on its Free plan. Suggestions stop at the configured limit and never switch to a paid provider.": [
+    "請將 Groq 帳戶維持在免費方案。達到設定上限後將停止建議，不會轉用付費供應商。",
+    "Belasse Groq im Free-Tarif. Vorschläge stoppen am Limit, ohne kostenpflichtigen Ersatzanbieter.",
+    "Gardez Groq sur le forfait gratuit. Les suggestions s’arrêtent à la limite, sans fournisseur payant de secours.",
+    "Groq の無料プランを維持してください。上限で提案を停止し、有料サービスには切り替えません。"
+  ],
+  "Requests today": [
+    "今日處理次數",
+    "Anfragen heute",
+    "Requêtes aujourd’hui",
+    "本日の処理回数"
+  ],
+  "Related tasks": [
+    "相關任務",
+    "Zugehörige Aufgaben",
+    "Tâches associées",
+    "関連する活動"
+  ],
+  "days": [
+    "天",
+    "Tage",
+    "jours",
+    "日"
+  ],
+  "seconds": [
+    "秒",
+    "Sekunden",
+    "secondes",
+    "秒"
+  ],
+  "Review outcome": [
+    "審查結果",
+    "Prüfergebnis",
+    "Résultat de l’examen",
+    "確認結果"
+  ],
+  "Dismissed": [
+    "已排除",
+    "Verworfen",
+    "Écarté",
+    "対応不要"
+  ],
+  "Reviewed": [
+    "已審查",
+    "Geprüft",
+    "Examiné",
+    "確認済み"
+  ],
+  "Save review": [
+    "儲存審查",
+    "Prüfung speichern",
+    "Enregistrer l’examen",
+    "確認結果を保存"
+  ],
+  "Repeated exchanges": [
+    "重複互助",
+    "Wiederholte Austausche",
+    "Échanges répétés",
+    "繰り返しの交流"
+  ],
+  "Repeated short completions": [
+    "多次短時間完成",
+    "Wiederholt kurze Erledigungen",
+    "Achèvements courts répétés",
+    "短時間での完了の繰り返し"
+  ],
+  "Multiple unresolved disputes": [
+    "多項未解決爭議",
+    "Mehrere offene Konflikte",
+    "Plusieurs litiges non résolus",
+    "複数の未解決の問題"
+  ],
+  "Repeated request titles": [
+    "重複請求標題",
+    "Wiederholte Anfragetitel",
+    "Titres de demandes répétés",
+    "依頼タイトルの重複"
+  ],
+  "Dispute summary": [
+    "爭議摘要",
+    "Konfliktübersicht",
+    "Résumé du litige",
+    "問題の概要"
+  ],
+  "Review case records": [
+    "查看個案紀錄",
+    "Fallakten prüfen",
+    "Consulter les pièces",
+    "記録を確認"
+  ],
+  "Recorded facts": [
+    "系統紀錄事實",
+    "Aufgezeichnete Fakten",
+    "Faits enregistrés",
+    "記録された事実"
+  ],
+  "Status history is recorded from the community support update onward.": [
+    "狀態歷史從社區支援更新後開始記錄。",
+    "Der Statusverlauf wird seit dem Unterstützungsupdate aufgezeichnet.",
+    "L’historique des statuts commence avec cette mise à jour.",
+    "状態履歴は今回の更新以降から記録されます。"
+  ],
+  "Time Credit records": [
+    "時間信用紀錄",
+    "Zeitguthaben-Buchungen",
+    "Écritures de crédit-temps",
+    "時間クレジットの記録"
+  ],
+  "Reported concern": [
+    "提出的問題",
+    "Gemeldetes Anliegen",
+    "Préoccupation signalée",
+    "報告された問題"
+  ],
+  "Participant statements": [
+    "參與者陳述",
+    "Aussagen der Beteiligten",
+    "Déclarations des participants",
+    "参加者の説明"
+  ],
+  "Statements are participants’ accounts, not verified findings. Photos remain in the original conversation.": [
+    "陳述為參與者的說法，並非已核實的結論。照片保留在原來的對話中。",
+    "Aussagen sind Schilderungen, keine geprüften Feststellungen. Fotos bleiben im ursprünglichen Gespräch.",
+    "Les déclarations sont les récits des participants, pas des constats vérifiés. Les photos restent dans la conversation d’origine.",
+    "説明は参加者の主張であり、確認済みの事実ではありません。写真は元の会話に保存されています。"
+  ],
+  "Unresolved: whether the reported concern is substantiated and whether the recorded service time should be settled. An administrator must decide and record a reason.": [
+    "尚待處理：問題是否屬實，以及應否結算所記錄的服務時間。管理員須作出決定並記錄原因。",
+    "Offen: Ist das Anliegen begründet und soll die erfasste Zeit abgerechnet werden? Die Verwaltung entscheidet mit Begründung.",
+    "À résoudre : la préoccupation est-elle fondée et faut-il régler le temps enregistré ? Un administrateur doit décider et motiver sa décision.",
+    "未解決：報告された問題の根拠と、記録された時間を精算すべきか。管理者が判断し理由を記録します。"
+  ],
+  "Please agree to send this description for processing.": [
+    "請同意傳送此描述作處理。",
+    "Bitte stimme der Verarbeitung zu.",
+    "Veuillez autoriser le traitement.",
+    "説明の処理への送信に同意してください。"
+  ],
+  "Choose a valid time zone.": [
+    "請選擇有效的時區。",
+    "Wähle eine gültige Zeitzone.",
+    "Choisissez un fuseau horaire valide.",
+    "有効なタイムゾーンを選択してください。"
+  ],
+  "Choose a valid meeting preference.": [
+    "請選擇有效的會面偏好。",
+    "Wähle eine gültige Begegnungsart.",
+    "Choisissez un mode de rencontre valide.",
+    "有効な交流方法を選んでください。"
+  ],
+  "Choose valid availability days.": [
+    "請選擇有效的可用日子。",
+    "Wähle gültige Wochentage.",
+    "Choisissez des jours valides.",
+    "有効な曜日を選んでください。"
+  ],
+  "Choose a review outcome.": [
+    "請選擇審查結果。",
+    "Wähle ein Prüfergebnis.",
+    "Choisissez un résultat.",
+    "確認結果を選んでください。"
+  ],
+  "A summary is available for disputed tasks only.": [
+    "摘要僅適用於有爭議的任務。",
+    "Nur für strittige Aufgaben verfügbar.",
+    "Disponible uniquement pour les tâches contestées.",
+    "問題が報告された活動のみ利用できます。"
+  ],
+  "Hi, {name}": [
+    "你好，{name}",
+    "Hallo, {name}",
+    "Bonjour, {name}",
+    "こんにちは、{name}"
+  ],
+  "In your area": [
+    "你所在的地區",
+    "In deiner Gegend",
+    "Dans votre secteur",
+    "お住まいの地域"
+  ],
+  "Search requests": [
+    "搜尋請求",
+    "Anfragen suchen",
+    "Rechercher une demande",
+    "依頼を検索"
+  ],
+  "No activity yet": [
+    "暫無活動記錄",
+    "Noch keine Aktivitäten",
+    "Aucune activité pour le moment",
+    "まだ履歴がありません"
+  ],
+  "Contact {name}": [
+    "聯絡 {name}",
+    "{name} kontaktieren",
+    "Contacter {name}",
+    "{name}に連絡"
+  ],
+  "Private conversation between you and this task participant.": [
+    "只有你和此任務的參與者可查看此對話。",
+    "Privates Gespräch zwischen dir und der anderen teilnehmenden Person.",
+    "Conversation privée entre vous et l’autre participant.",
+    "あなたとこのタスクの参加者だけの会話です。"
+  ],
+  "Scheduled": [
+    "已預約",
+    "Geplant",
+    "Planifié",
+    "予定済み"
+  ],
+  "Confirm the date": [
+    "確認日期",
+    "Termin bestätigen",
+    "Confirmer la date",
+    "日時を確認"
+  ],
+  "Confirmed": [
+    "已確認",
+    "Bestätigt",
+    "Confirmé",
+    "確認済み"
+  ],
+  "Agree to this date": [
+    "同意此日期",
+    "Diesem Termin zustimmen",
+    "Accepter cette date",
+    "この日時に同意"
+  ],
+  "Add to calendar": [
+    "加入行事曆",
+    "Zum Kalender hinzufügen",
+    "Ajouter au calendrier",
+    "カレンダーに追加"
+  ],
+  "Open the calendar file and save the event. Your calendar controls reminder sounds. Add it again if the date changes.": [
+    "開啟行事曆檔案並儲存活動。提示聲由行事曆設定控制。如日期更改，請重新加入。",
+    "Kalenderdatei öffnen und Termin speichern. Der Kalender steuert Erinnerungstöne. Bei Terminänderung erneut hinzufügen.",
+    "Ouvrez le fichier et enregistrez l’événement. Le calendrier contrôle les sons. Ajoutez-le à nouveau si la date change.",
+    "カレンダーファイルを開いて保存してください。通知音はカレンダーで設定します。日時変更時は再追加してください。"
+  ],
+  "Start becomes available at the agreed time.": [
+    "到約定時間才可開始。",
+    "Start ist ab dem vereinbarten Termin möglich.",
+    "Le démarrage sera disponible à l’heure convenue.",
+    "開始は合意した日時から可能です。"
+  ],
+  "Start when you are both together and ready.": [
+    "雙方到齊並準備好後才開始。",
+    "Startet, wenn ihr beide bereit seid.",
+    "Commencez lorsque vous êtes tous deux prêts.",
+    "双方の準備ができたら開始してください。"
+  ],
+  "Waiting for the other person to start.": [
+    "等待對方確認開始。",
+    "Warten auf den Start der anderen Person.",
+    "En attente du démarrage de l’autre personne.",
+    "相手の開始確認を待っています。"
+  ],
+  "Start now": [
+    "現在開始",
+    "Jetzt starten",
+    "Commencer",
+    "今すぐ開始"
+  ],
+  "Change date": [
+    "更改日期",
+    "Termin ändern",
+    "Changer la date",
+    "日時を変更"
+  ],
+  "Propose new date": [
+    "提出新日期",
+    "Neuen Termin vorschlagen",
+    "Proposer une nouvelle date",
+    "新しい日時を提案"
+  ],
+  "This task cannot start before the agreed time.": [
+    "未到約定時間，無法開始。",
+    "Diese Aufgabe kann nicht vor dem vereinbarten Termin beginnen.",
+    "Cette tâche ne peut pas commencer avant l’heure convenue.",
+    "合意した日時より前には開始できません。"
+  ],
+  "Both participants must confirm the date first.": [
+    "雙方必須先確認日期。",
+    "Beide müssen zuerst den Termin bestätigen.",
+    "Les deux participants doivent confirmer la date.",
+    "まず双方が日時を確認してください。"
+  ],
+  "Task conversations": [
+    "任務對話",
+    "Aufgabengespräche",
+    "Conversations de la tâche",
+    "タスクの会話"
+  ],
+  "No messages yet.": [
+    "暫時沒有訊息。",
+    "Noch keine Nachrichten.",
+    "Aucun message pour le moment.",
+    "まだメッセージはありません。"
+  ]
+}

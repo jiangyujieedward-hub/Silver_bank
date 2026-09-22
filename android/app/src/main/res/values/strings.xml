@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Silver Bank</string>
+    <string name="title_activity_main">Silver Bank</string>
+    <string name="package_name">community.neighbour.timebank</string>
+    <string name="custom_url_scheme">community.neighbour.timebank</string>
+</resources>

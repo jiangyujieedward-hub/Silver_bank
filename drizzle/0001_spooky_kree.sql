@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `ledger_onboarding_once` ON `ledger` (`destination_id`) WHERE "ledger"."type" = 'onboarding';

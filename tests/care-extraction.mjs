@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {parseCareReply} from '../lib/care-extraction.ts';
+const result=(topic,physicalQuotes)=>JSON.stringify({reply:'Thank you for sharing.',topic,physicalQuotes});
+assert.deepEqual(parseCareReply(result('physical',['My knee hurts.']),'My knee hurts.').physicalQuotes,['My knee hurts.']);
+assert.deepEqual(parseCareReply(result('emotional',[]),'I feel lonely.').physicalQuotes,[]);
+assert.deepEqual(parseCareReply(result('mixed',['My knee hurts.']),'I feel lonely. My knee hurts.').physicalQuotes,['My knee hurts.']);
+assert.deepEqual(parseCareReply(result('uncertain',[]),'That happened again.').physicalQuotes,[]);
+assert.throws(()=>parseCareReply(result('physical',['I have arthritis.']),'My knee hurts.'));
+assert.throws(()=>parseCareReply(result('emotional',['I feel lonely.']),'I feel lonely.'));
+assert.throws(()=>parseCareReply(result('physical',['My knee hurts.']),'My mother has knee pain.'));
+assert.throws(()=>parseCareReply('not JSON','Hello'));
+assert.throws(()=>parseCareReply(JSON.stringify({reply:'Hi',topic:'diagnosis',physicalQuotes:[]}), 'Hi'));
+console.log('PASS: 9 extraction validation checks');

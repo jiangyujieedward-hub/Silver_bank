@@ -2,6 +2,7 @@
 import React,{useRef,useState,useEffect} from 'react';
 import {motion,MotionConfig,useScroll,useTransform,useReducedMotion,useInView,MotionValue} from 'motion/react';
 import {ArrowUpRight,ArrowRight,Clock,Heart,HeartHandshake,BookOpen,Users,ShieldCheck,Activity,MessageCircle,Building2,Check,Menu,X,LockKeyhole,Leaf} from 'lucide-react';
+import {BankSolutions,CareSolutions} from './silver-solutions';
 import {Hero} from './ui/animated-hero';
 import {Button} from './ui/button';
 import {Accordion,AccordionItem,AccordionTrigger,AccordionContent} from './ui/accordion';
@@ -44,15 +45,15 @@ export function SilverLanding({onStart,onSignIn,onEnter,onCare,signedIn=false}:{
  <Chapter className="sp-section sp-product-story" id="sp-bank-details">
  <div className="sp-story-title"><span className="sp-product-label"><HeartHandshake/> Silver Bank</span><ScrollHeading paused={paused}>Everyone has something to give.</ScrollHeading></div>
  <div className="sp-story-problem"><h3>The problem</h3><p>Experience can go unused while everyday help stays out of reach. Different generations need more ways to connect.</p></div>
- <div className="sp-story-solution" id="sp-how"><h3>The solution</h3><p>Exchange help through Time Credit. One hour given has the same value as one hour received.</p><ol><li><strong>Find a match</strong><span>Offer a skill or ask for everyday help.</span></li><li><strong>Agree and take part</strong><span>Choose a time and confirm the task together.</span></li><li><strong>Give and receive</strong><span>Confirm completion and exchange Time Credit.</span></li></ol></div>
+ <div className="sp-story-solution" id="sp-how"><h3>The solution</h3><p>Exchange help through Time Credit. One hour given has the same value as one hour received.</p><BankSolutions/></div>
  <div className="sp-story-innovation"><h3>What makes it different</h3><div><article><BookOpen/><h4>Experience has equal value</h4><p>Time connects people across ages and backgrounds.</p></article><article><Building2/><h4>Community support</h4><p>Approved partners offer training, Skill Badges and Time Support programs.</p></article></div><p className="sp-story-safeguard">Verified people and organizations. Human review for disputes and important decisions.</p></div>
  <Button onClick={signedIn?onEnter:onStart}>Get started with Silver Bank <ArrowUpRight size={18}/></Button>
  </Chapter>
  <Chapter className="sp-section sp-product-story sp-care-story" id="sp-care-details">
  <div className="sp-story-title"><span className="sp-product-label"><Heart/> Silver Care</span><ScrollHeading paused={paused}>Your wellbeing, in your own words.</ScrollHeading></div>
  <div className="sp-story-problem"><h3>The problem</h3><p>Small changes are easy to forget. Scattered notes can make it harder to explain how you feel or prepare for an appointment.</p></div>
- <div className="sp-care-solution"><div><h3>The solution</h3><p>Talk or type to the AI, revisit your conversations and keep the observations that matter.</p></div><div className="sp-care-detail-list"><article><MessageCircle/><div><h4>A conversation that stays with you</h4><p>Voice input where supported, spoken replies and private chat history.</p></div></article><article><Activity/><div><h4>A clearer personal record</h4><p>Review your words, track changes and prepare appointment notes.</p></div></article><article><Users/><div><h4>Family within reach</h4><p>Save the people you trust and open a call from their contact.</p></div></article></div></div>
- <div className="sp-story-innovation"><h3>What makes it different</h3><p>Conversations, personal observations and compatible watch readings come together, with sharing under your control.</p><p>Choose broad activity preferences for Silver Bank without sharing symptoms or raw health records.</p><p className="sp-story-safeguard">AI supports reflection, not diagnosis. Watch readings require a compatible connection.</p></div>
+ <div className="sp-care-solution"><div><h3>The solution</h3><p>Talk or type naturally. Keep physical concerns in My Health and your family within reach.</p></div><CareSolutions/></div>
+ <div className="sp-story-innovation"><h3>What makes it different</h3><p>Physical health notes, personal observations and compatible watch readings come together, with sharing under your control.</p><p>Choose broad activity preferences for Silver Bank without sharing symptoms or raw health records.</p><p className="sp-story-safeguard">AI supports reflection, not diagnosis. Watch readings require a compatible connection.</p></div>
  <Button onClick={onCare}>Get started with Silver Care <ArrowUpRight size={18}/></Button>
  </Chapter>
  <Chapter className="sp-section sp-community" id="sp-community"><div><ScrollHeading paused={paused}>A community for every generation.</ScrollHeading><p className="sp-intro">Give support. Find support. Stay involved in a way that suits you.</p></div><div className="sp-audiences">{[['Older adults','Share experience, keep connections and receive everyday help.'],['Younger people','Offer practical skills and learn from another generation.'],['Community Partners','Create trusted programs, learning opportunities and local support.'],['Families','Keep loved ones within reach. Health sharing remains their choice.']].map(([title,text])=><article key={title}><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></Chapter>

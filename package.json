@@ -32,6 +32,7 @@
     "date-fns": "^4.4.0",
     "drizzle-orm": "0.45.2",
     "embla-carousel-react": "^8.6.0",
+    "gsap": "^3.15.0",
     "input-otp": "^1.4.2",
     "libphonenumber-js": "^1.13.13",
     "lucide-react": "^1.31.0",

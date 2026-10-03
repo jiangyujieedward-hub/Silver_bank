@@ -5,6 +5,8 @@ for file in sorted(glob.glob('drizzle/*.sql')):c.executescript(open(file).read()
 c.execute("INSERT INTO settings VALUES('onboarding_seconds','10800')")
 for member in ['requester','helper']:
  c.execute('INSERT INTO users(id,email,name,password,recovery,location) VALUES(?,?,?,?,?,?)',(member,member+'@example.test',member,'test','test','Test'))
+from verified_fixture import verify_members
+verify_members(c)
 c.execute("INSERT INTO categories VALUES('help','Test help',1)")
 def available(member):return c.execute('SELECT available FROM balances WHERE user_id=?',(member,)).fetchone()[0]
 def post(task,member,seconds):c.execute('INSERT INTO tasks(id,requester_id,title,description,category_id,location,estimated_seconds,remote,requested_at) VALUES(?,?,?,?,?,?,?,1,unixepoch()+86400)',(task,member,'Test','Test','help','Test',seconds))

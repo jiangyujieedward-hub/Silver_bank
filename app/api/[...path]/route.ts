@@ -1,3 +1,6 @@
+import {careRoute,ingestCare} from '@/lib/care';
+import {partnerRoute,programsRoute,taskPreparation} from '@/lib/partners';
+import {verificationRoute,verificationSummary,verificationPolicy,dateOfBirth,ageBandFromBirth,oldEnough,createOrganization,requireParticipation} from '@/lib/verification';
 import {communityRoute,scanFlags} from '@/lib/community';
 import {validatePhoto} from '@/lib/photo';
 import {policies,languages,ageBands,details,acceptance,needsOnboarding} from '@/lib/onboarding';
@@ -9,10 +12,10 @@ export const dynamic='force-dynamic';
 const reply=(value:any,status=200,headers:any={})=>Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...headers}});
 async function handler(req:Request) {try{
  const parts=new URL(req.url).pathname.replace(/^\/api\//,'').split('/');const [root,id,action]=parts;const url=new URL(req.url);const post=req.method==='POST';const native=req.headers.get('X-Timebank-Client')==='native'&&!req.headers.get('cookie');
- if(post){const origin=req.headers.get('origin');if(origin!==url.origin&&!native)fail('Please submit this form from the application.',403);if(!req.headers.get('content-type')?.includes('application/json'))fail('Unsupported request.',415);if(Number(req.headers.get('content-length')||0)>1500000)fail('File is too large.',413);}
+ if(post){const origin=req.headers.get('origin');if(origin!==url.origin&&!native&&root!=='care-device')fail('Please submit this form from the application.',403);if(!req.headers.get('content-type')?.includes('application/json'))fail('Unsupported request.',415);if(Number(req.headers.get('content-length')||0)>1500000)fail('File is too large.',413);}
  const raw=post?await req.text():'';if(raw.length>1500000)fail('Request is too large.',413);let b:any={};if(post){try{b=JSON.parse(raw)}catch{fail('Invalid request body.')}}
  if(!b||typeof b!=='object'||Array.isArray(b))fail('Invalid request body.');
- if(root==='policies'&&!post)return reply({policies,languages,ageBands});
+ if(root==='policies'&&!post)return reply({policies,languages,ageBands,...await verificationPolicy()});
  if(root==='auth'){
   if(id==='logout'){if(!post)fail('Method not allowed.',405);const u=await actor(req);const token=req.headers.get('authorization')?.match(/^Bearer ([a-f0-9]{64})$/)?.[1] || req.headers.get('cookie')?.match(/(?:^|;\s*)tb_session=([^;]+)/)?.[1];await run('DELETE FROM sessions WHERE id=? AND user_id=?',await hash(token!),u.id);return reply({ok:true},200,{'Set-Cookie':`tb_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${url.protocol==='https:'?'; Secure':''}`});}
   if(!post)fail('Method not allowed.',405);
@@ -20,8 +23,8 @@ async function handler(req:Request) {try{
   let u:any;let recoveryKey:string|undefined;
   if(id==='register'){
    const configured=await one("SELECT value FROM settings WHERE id='configured'");if(!configured)fail('The community administrator must finish setup before registration opens.',503);
-   const extra=details(b);const userId=uid();const consents=acceptance(b,userId);recoveryKey=secret();const pw=await password(pass);const rec=await hash(recoveryKey);
-   try{await database().batch([query('INSERT INTO users(id,email,name,password,recovery,location,phone,language,age_band) VALUES(?,?,?,?,?,?,?,?,?)',userId,email,required(b.name,100),pw,rec,communityLocation(b),extra.phone,extra.language,extra.ageBand),...consents]);}catch(e:any){if(String(e).includes('UNIQUE'))fail('This email is already registered. Sign in or recover your account.');throw e;}
+   const accountType=b.accountType;if(!['individual','organization'].includes(accountType))fail('Choose Individual or Community Partner registration.');const policy=await verificationPolicy();const dob=accountType==='individual'?dateOfBirth(b.birthDate):null;if(dob&&!oldEnough(dob,policy.minimumAge))fail(`You must be at least ${policy.minimumAge} to participate.`);const extra=details({...b,ageBand:dob?ageBandFromBirth(dob):''},accountType==='organization');const userId=uid();const consents=acceptance(b,userId);recoveryKey=secret();const pw=await password(pass);const rec=await hash(recoveryKey);
+   try{await database().batch([query('INSERT INTO users(id,email,name,password,recovery,location,phone,language,age_band,account_type) VALUES(?,?,?,?,?,?,?,?,?,?)',userId,email,required(b.name,100),pw,rec,communityLocation(b),extra.phone,extra.language,extra.ageBand,accountType),...consents,...(accountType==='organization'?createOrganization(b,userId):[query("INSERT INTO identity_verifications(user_id,legal_name,birth_date,status) VALUES(?,?,?,'submitted')",userId,required(b.name,100),dob)])]);}catch(e:any){if(String(e).includes('UNIQUE'))fail('An account or organization with these details already exists. Sign in, recover your account or contact verification staff.');throw e;}
    u=await one('SELECT * FROM users WHERE id=?',userId);
   }else if(id==='login'){
    u=await one('SELECT * FROM users WHERE email=?',email);const expected=await password(pass,u?.password.split(':')[0]||'invalid-account');if(!u||!equal(expected,u.password))fail('Email or password is incorrect.',401);
@@ -40,14 +43,20 @@ async function handler(req:Request) {try{
   await database().batch([query("INSERT INTO settings(id,value) VALUES('configured','1')"),query("INSERT INTO settings(id,value) VALUES('onboarding_seconds',?)",String(whole(b.starterMinutes,0,525600)*60)),query("INSERT INTO users(id,email,name,password,recovery,location,role) VALUES(?,?,?,?,?,?,'admin')",adminId,email,required(b.name,100),await password(pass),await hash(rec),communityLocation(b)),...cats.map(name=>query('INSERT INTO categories(id,name) VALUES(?,?)',uid(),name)),query("INSERT INTO admin_actions(id,actor_id,action,target_id,reason) VALUES(?,?,'initialize','settings','Initial community configuration')",uid(),adminId)]);
   return reply({ok:true,recoveryKey:rec});
  }
+ if(root==='care-device'){if(!post)fail('Method not allowed.',405);await rate(req,'care-device',120);return reply(await ingestCare(req,b));}
  const u=await actor(req);
+ if(root==='care')return reply(await careRoute(u,id,post?b:Object.fromEntries(url.searchParams),post));
+ if(root==='partner')return reply(await partnerRoute(u,id,post?b:Object.fromEntries(url.searchParams),post));
+ if(root==='programs')return reply(await programsRoute(u,id,post?b:Object.fromEntries(url.searchParams),post));
+ if(root==='verification')return reply(await verificationRoute(u,id,post?b:Object.fromEntries(url.searchParams),post));
  if(['recommendations','request-support','matching-preferences','community-insights','dispute-summary'].includes(root))return reply(await communityRoute(root,id,u,b,post));
  if(root==='me'){
-  if(post){const extra=details(b);let image=clean(b.image,1400000)||null;if(image&&!/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(image))fail('Choose a PNG, JPEG or WebP image.');const consents=await needsOnboarding(u)?acceptance(b,u.id):[];await database().batch([query('UPDATE users SET name=?,location=?,phone=?,language=?,age_band=?,skills=?,preferences=?,image=? WHERE id=?',required(b.name,100),communityLocation(b),extra.phone,extra.language,extra.ageBand,clean(b.skills,1000),clean(b.preferences,1000),image,u.id),...consents]);}
-  const current=await one('SELECT * FROM users WHERE id=?',u.id);return reply({user:await profile(u.id,true),needsOnboarding:await needsOnboarding(current),agreements:await rows('SELECT kind,version,signature,signature_drawing,accepted_at,task_id FROM agreement_acceptances WHERE user_id=? ORDER BY accepted_at DESC',u.id),balance:await balance(u.id),categories:await rows('SELECT * FROM categories WHERE active=1 ORDER BY name'),serverTime:Math.floor(Date.now()/1000)});
+  if(post){const extra=details(b,u.account_type==='organization');let image=clean(b.image,1400000)||null;if(image&&!/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(image))fail('Choose a PNG, JPEG or WebP image.');const consents=await needsOnboarding(u)?acceptance(b,u.id):[];await database().batch([query('UPDATE users SET name=?,location=?,phone=?,language=?,age_band=?,skills=?,preferences=?,image=? WHERE id=?',required(b.name,100),communityLocation(b),extra.phone,extra.language,extra.ageBand,clean(b.skills,1000),clean(b.preferences,1000),image,u.id),...consents]);}
+  const current=await one('SELECT * FROM users WHERE id=?',u.id);return reply({user:await profile(u.id,true),verification:await verificationSummary(current),needsOnboarding:await needsOnboarding(current),agreements:await rows('SELECT kind,version,signature,signature_drawing,accepted_at,task_id FROM agreement_acceptances WHERE user_id=? ORDER BY accepted_at DESC',u.id),balance:await balance(u.id),categories:await rows('SELECT * FROM categories WHERE active=1 ORDER BY name'),serverTime:Math.floor(Date.now()/1000)});
  }
  if(root==='profiles'&&!post)return reply(await profile(id));
  if(root==='tasks'){
+  if(post&&(!id||action==='accept'))await requireParticipation(u);
   if(post&&await needsOnboarding(u))fail('Complete your profile and agree to the guidelines before participating.',428);
   if(!id){
    if(post){const seconds=whole(b.minutes,1,10080)*60;const account=await balance(u.id);if(seconds>account.available)fail(`You have ${money(account.available)} available. This request needs ${money(seconds)}. Give time to earn more credit.`,409);const date=Math.floor(Date.parse(required(b.requestedAt))/1000);if(!Number.isFinite(date)||date<=Math.floor(Date.now()/1000))fail('Choose a future date and time.');if(!await one('SELECT id FROM categories WHERE id=? AND active=1',b.categoryId))fail('Choose an available category.');const tid=uid();await run('INSERT INTO tasks(id,requester_id,title,description,category_id,location,remote,estimated_seconds,requested_at) VALUES(?,?,?,?,?,?,?,?,?)',tid,u.id,required(b.title,160),required(b.description,5000),b.categoryId,communityLocation(b),b.remote?1:0,seconds,date);return reply({id:tid},201);}
@@ -73,8 +82,11 @@ async function handler(req:Request) {try{
   }
   const t=await task(id,u);
   if(!post&&action==='messages'){participant(t,u);const before=url.searchParams.get('before');return reply(await rows('SELECT m.rowid AS cursor,m.*,u.name AS sender_name FROM messages m JOIN users u ON u.id=m.sender_id WHERE task_id=? AND m.rowid<? ORDER BY m.rowid DESC LIMIT 10',id,before?whole(before,1,Number.MAX_SAFE_INTEGER):Number.MAX_SAFE_INTEGER));}
-  if(!post)return reply({...t,serverTime:Math.floor(Date.now()/1000),reviews:await rows('SELECT * FROM reviews WHERE task_id=?',id),messages:(u.id===t.requester_id||u.id===t.helper_id)?(await rows('SELECT m.rowid AS cursor,m.*,u.name AS sender_name FROM messages m JOIN users u ON u.id=m.sender_id WHERE task_id=? ORDER BY m.rowid DESC LIMIT 10',id)).reverse():[]});
+  if(!post)return reply({...t,preparation:await taskPreparation(t.id,u.id),serverTime:Math.floor(Date.now()/1000),reviews:await rows('SELECT * FROM reviews WHERE task_id=?',id),messages:(u.id===t.requester_id||u.id===t.helper_id)?(await rows('SELECT m.rowid AS cursor,m.*,u.name AS sender_name FROM messages m JOIN users u ON u.id=m.sender_id WHERE task_id=? ORDER BY m.rowid DESC LIMIT 10',id)).reverse():[]});
   if(action==='accept'){
+   if(u.account_type!=='individual')fail('Community Partner accounts organize activities. Use an individual account to participate.',403);
+   const prep=await taskPreparation(t.id,u.id);if(prep&&!prep.badge_id)fail('Training required to participate. Open the training from this task.',403);
+   const match=await one('SELECT sharer_id FROM partner_matches WHERE task_id=?',t.id);if(match&&match.sharer_id!==u.id)fail('This exchange is reserved for its matched skill sharer.',403);
    if(t.requester_id===u.id)fail('You cannot accept your own request.');const result=await run("UPDATE tasks SET helper_id=?,status='accepted' WHERE id=? AND status='open' AND helper_id IS NULL AND requester_id<>? AND NOT EXISTS(SELECT 1 FROM users WHERE id=tasks.requester_id AND suspended=1)",u.id,id,u.id);if(!result.meta.changes)fail('This request is no longer available.',409);return reply({ok:true});
   }
   participant(t,u);
@@ -129,7 +141,7 @@ async function handler(req:Request) {try{
   await database().batch([...statements,query('INSERT INTO admin_actions(id,actor_id,action,target_id,reason) VALUES(?,?,?,?,?)',uid(),u.id,id,b.userId||b.taskId||b.categoryId||'settings',reason)]);return reply({ok:true});
  }
  fail('Not found.',404);
- }catch(e:any){const message=String(e.message||e);if(message.includes('insufficient_credit'))return reply({error:'There is not enough available Time Credit for this change. For an overrun, the requester must earn more time or ask an administrator to resolve the dispute.'},409);if(message.includes('UNIQUE constraint'))return reply({error:'This action has already been recorded. Refresh to see the latest state.'},409);if(e.status)return reply({error:e.message},e.status);console.error('Time Bank request failed',e);return reply({error:'We could not save this change. Your existing records are safe. Please refresh and try again.'},500);}}
+ }catch(e:any){const message=String(e.message||e);for(const [key,label] of Object.entries({program_full:'This program has reached its participant capacity.',training_required:'Training required to participate.',partner_unavailable:'The organization or program is not currently available.',support_budget_exceeded:'This allocation exceeds the Time Fund budget.',support_already_reviewed:'This request has already been reviewed.'}))if(message.includes(key))return reply({error:label},409);if(message.includes('insufficient_credit'))return reply({error:'There is not enough available Time Credit for this change. For an overrun, the requester must earn more time or ask an administrator to resolve the dispute.'},409);if(message.includes('UNIQUE constraint'))return reply({error:'This action has already been recorded. Refresh to see the latest state.'},409);if(e.status)return reply({error:e.message},e.status);console.error('Time Bank request failed',e);return reply({error:'We could not save this change. Your existing records are safe. Please refresh and try again.'},500);}}
 const nativeOrigins=['capacitor://localhost','http://localhost','https://localhost'];
 async function cors(req:Request){const origin=req.headers.get('origin');if(req.method==='OPTIONS'){if(!origin||!nativeOrigins.includes(origin))return new Response(null,{status:403});return new Response(null,{status:204,headers:{'Access-Control-Allow-Origin':origin,'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type, Authorization, X-Timebank-Client','Vary':'Origin'}});}const r=await handler(req);if(req.method==='POST'&&/^\/api\/tasks(?:\/[^/]+\/(?:confirm|dispute))?$/.test(new URL(req.url).pathname)&&r.ok){try{await scanFlags()}catch{console.error('Review scan unavailable');}}if(origin&&nativeOrigins.includes(origin)){r.headers.set('Access-Control-Allow-Origin',origin);r.headers.set('Vary','Origin');}return r;}
 export const GET=cors;export const POST=cors;export const OPTIONS=cors;

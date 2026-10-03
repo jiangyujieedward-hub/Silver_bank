@@ -5,6 +5,8 @@ for file in sorted(glob.glob('drizzle/*.sql')):c.executescript(open(file).read()
 c.execute("INSERT INTO settings VALUES('onboarding_seconds','10800')")
 for member in ['r','h']:
  c.execute('INSERT INTO users(id,email,name,password,recovery) VALUES(?,?,?,?,?)',(member,member+'@example.test',member,'test','test'))
+from verified_fixture import verify_members
+verify_members(c)
 c.execute("INSERT INTO categories VALUES('help','Help',1)")
 c.execute("INSERT INTO tasks(id,requester_id,title,description,category_id,location,estimated_seconds,remote,requested_at) VALUES('t','r','Test','Test','help','Test',3600,1,unixepoch()+3600)")
 c.execute("UPDATE tasks SET helper_id='h',status='accepted' WHERE id='t'")

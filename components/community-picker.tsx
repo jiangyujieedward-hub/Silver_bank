@@ -1,7 +1,7 @@
 'use client';
 import React,{useState} from 'react';
 import {countries,regions,cities,communityLabel,parseCommunity} from '@/lib/communities';
-import {NativeSelect} from './ui/native-select';
+import {NativeSelect} from './silver/select';
 import {tr,useLanguage} from '@/lib/i18n';
 export function CommunityPicker({value='',onChange,required=true}:{value?:string,onChange?:(value:string)=>void,required?:boolean}){
  const [selection,setSelection]=useState(()=>parseCommunity(value));const language=useLanguage();const names=new Intl.DisplayNames([language],{type:'region'});

@@ -11,6 +11,8 @@ def fails(sql,*args):
  else:raise AssertionError('Expected rejection: '+sql)
 q("INSERT INTO settings VALUES('onboarding_seconds','120')")
 for u in ['requester','helper','outsider']:q("INSERT INTO users(id,email,name,password,recovery,location) VALUES(?,?,?,?,?,?)",u,u+'@test.invalid',u,'test hash','test hash','Test only')
+from verified_fixture import verify_members
+verify_members(c)
 q("INSERT INTO categories VALUES('category','Test category',1)")
 fails("INSERT INTO ledger(id,destination_id,amount,type,metadata) VALUES('duplicate','requester',120,'onboarding','duplicate')")
 fails("UPDATE ledger SET amount=999")

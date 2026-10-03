@@ -1,0 +1,32 @@
+Silver Care: connecting your watch
+
+The website already accepts heart rate, steps and activity duration through an authenticated HTTPS endpoint. A watch with Bluetooth or Wi-Fi is not automatically compatible.
+
+Recommended path if your watch firmware can be changed:
+1. Ask the maker for the model, processor, firmware source and sensor formats.
+2. Connect the watch to Wi-Fi and synchronize its clock.
+3. In Silver Care > My Watch, create an adapter connection and select data permissions.
+4. Provision the private connection key securely into the watch. Never put it in public source code, screenshots or URLs.
+5. Have firmware POST readings over HTTPS with certificate verification. Do not disable TLS validation.
+6. Check the last-sync time and the received readings in My Health.
+
+Endpoint:
+https://neighbour-time-bank.edward24122009.chatgpt.site/api/care-device
+
+Header:
+Authorization: CareDevice YOUR_PRIVATE_DEVICE_KEY
+Content-Type: application/json
+
+Example payload (replace with an actual sensor reading and current ISO time):
+{"measurements":[{"id":"unique-reading-id","kind":"heart_rate","value":72,"unit":"bpm","measuredAt":"2026-10-03T02:00:00Z"}]}
+
+Other kinds: steps (unit steps), activity_minutes (unit minutes).
+Use stable unique reading IDs for retries. At most 100 readings per request.
+Buffer while offline and retry with backoff. Keep original measuredAt timestamps.
+Disconnect in My Watch to revoke access. Replacing permissions replaces the device key.
+A device key can submit permitted readings, not read private records.
+
+Bluetooth alternative:
+Ask for BLE GATT service UUIDs, characteristic UUIDs, notification format and pairing/security requirements. Bluetooth alone does not reveal the sensor protocol. Browser Bluetooth support varies, so a companion app or Wi-Fi connection may be needed. Do not claim pairing until real readings are received and tested.
+
+Send your developer: model name or clear watch/board photos, processor name, firmware source, sensor list and BLE protocol document if available.

@@ -7,3 +7,8 @@
 - Animated Circular Progress Bar: Magic UI, https://magicui.design/docs/components/animated-circular-progress-bar. Registry source adapted for real ledger values, accessible labels, zero totals and reduced motion.
 
 - FlipCard JS-CSS: React Bits, https://reactbits.dev/micro/flip-card. Exact registry source integrated with real task navigation; motion dependency already installed.
+
+## September 2026 silver UI update
+- beUI (https://beui.dev): motion input, select, tabs, multi-select and wheel-picker sources retrieved from its public shadcn registry. App adapters preserve native form submission/validation; local keyboard navigation and event-compatibility additions. See each source's beui.dev header.
+- Animate UI (https://animate-ui.com): community Notification List adapted to actual app notifications with touch/keyboard expansion; Base Preview Link Card and supporting primitives. Imports adapted to installed Base UI. Link previews use local assets only, without third-party screenshot requests.
+- Three task-category photos generated with OpenAI image generation for Silver Bank; illustrative category artwork, not member-uploaded evidence.

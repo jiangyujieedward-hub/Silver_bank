@@ -44,3 +44,14 @@ const scheduled=renderToStaticMarkup(<TaskSchedule task={fixture} userId="a" now
 const due=renderToStaticMarkup(<TaskSchedule task={fixture} userId="b" now={2000000000} busy={false} action={async()=>{}}/>);assert.ok(due.includes('Start now'));
 const calendar=calendarFile(fixture);assert.equal((calendar.match(/BEGIN:VALARM/g)||[]).length,2);assert.ok(calendar.includes('TRIGGER:-PT15M'));assert.ok(calendar.includes('TRIGGER:PT0M'));
 console.log('PASS: saved community prefills; start hidden before schedule; calendar contains both reminders.');
+
+import {RegistrationChoice,IndividualRegistrationFields,OrganizationFields,VerificationCenter} from '../components/verification';
+const choice=renderToStaticMarkup(<RegistrationChoice choose={()=>{}}/>);
+assert.ok(choice.includes('Create Individual Account')&&choice.includes('Register a Community Partner')&&choice.includes('Sign In'));
+const individual=renderToStaticMarkup(<IndividualRegistrationFields api={async()=>({minimumAge:14})}/>);
+assert.ok(individual.includes('birthDate')&&!individual.includes('registrationId'));
+const organization=renderToStaticMarkup(<OrganizationFields/>);
+assert.ok(organization.includes('registrationId')&&organization.includes('representativeEmail')&&!organization.includes('birthDate'));
+const center=renderToStaticMarkup(<VerificationCenter embedded api={async()=>({})} me={{user:{id:'pending',account_type:'individual'},verification:{canParticipate:false}}} refresh={async()=>{}} signOut={()=>{}} onClose={()=>{}}/>);
+assert.ok(center.includes('Back to Silver Bank'));
+console.log('PASS: distinct individual/NGO forms and pending-user navigation back to Silver Bank.');

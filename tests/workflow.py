@@ -17,7 +17,7 @@ class Client:
   return result if expected is not None else (status,result)
 policies=Client().call('policies')['policies']
 consent={'signatureDrawing':'[[[100,100],[200,50],[350,170]]]', 'signature':'Integration participant','taskUnderstood':True,**{p['kind']+'Agreed':True for p in policies},**{p['kind']+'Version':p['version'] for p in policies}}
-extra={'phone':'+85212345678','language':'zh-Hant','ageBand':'65-74',**consent}
+extra={'accountType':'individual','birthDate':'1990-01-01','phone':'+85212345678','language':'zh-Hant','ageBand':'65-74',**consent}
 seed=uuid.uuid4().hex
 admin=Client();key=next(line.split('=',1)[1].strip() for line in open('.dev.vars') if line.startswith('ADMIN_SETUP_KEY='))
 password=uuid.uuid4().hex+'!'
@@ -26,7 +26,11 @@ admin.call('setup',{'email':aemail,'name':'Integration administrator','password'
 admin.call('auth/login',{'email':aemail,'password':password})
 clients=[]
 for n in range(3):
- c=Client();c.email=f'member-{n}-{seed}@example.test';r=c.call('auth/register',{'email':c.email,'password':password,'name':f'Integration member {n}','location':'Hong Kong S.A.R. / Sha Tin',**extra});c.recovery=r['recoveryKey'];c.me=c.call('me');assert c.me['balance']['available']==7200;clients.append(c)
+ c=Client();c.email=f'member-{n}-{seed}@example.test';r=c.call('auth/register',{'email':c.email,'password':password,'name':f'Integration member {n}','location':'Hong Kong S.A.R. / Sha Tin',**extra});c.recovery=r['recoveryKey'];c.me=c.call('me');assert c.me['balance']['available']==0
+ user_id=c.me['user']['id']
+ admin.call('verification/review',{'userId':user_id,'version':0,'status':'under_review','reason':'Synthetic test review'})
+ admin.call('verification/review',{'userId':user_id,'version':1,'status':'verified','reason':'Synthetic original evidence checked','ageChecked':True,'identityChecked':True,'duplicateChecked':True,'identityIssuer':'TEST','identityIdentifier':seed+str(n),'evidenceReference':'Isolated test only'})
+ c.me=c.call('me');assert c.me['balance']['available']==7200;clients.append(c)
  open('.wrangler/test-login.json','w').write(json.dumps({'email':c.email,'password':password}))
 a,b,c=clients
 assert a.call('me')['user']['location']=='Hong Kong S.A.R. / Sha Tin'

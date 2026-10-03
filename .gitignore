@@ -57,12 +57,5 @@ next-env.d.ts
 /ios/App/Pods/
 /ios/App/build/
 
-# Private data and signing material
-*.sqlite
-*.sqlite-*
-*.db
-*.p12
-*.p8
-*.mobileprovision
-*.keystore
-*.jks
+__pycache__/
+*.pyc

@@ -1,0 +1,74 @@
+import {z} from 'zod';
+import {careChat} from './care-chat';
+import {database,query,one,rows,run,fail,clean,required,whole,uid,hash,secret} from './bank';
+const activityOptions=['lower-intensity','shorter','remote','nearby'];
+const metrics:Record<string,{unit:string,max:number}>={heart_rate:{unit:'bpm',max:400},steps:{unit:'steps',max:200000},activity_minutes:{unit:'minutes',max:1440}};
+function time(v:any,future=false){const n=typeof v==='number'?v:Math.floor(Date.parse(String(v))/1000);if(!Number.isSafeInteger(n)||n<0||n>(future?Date.now()/1000+315360000:Date.now()/1000+300))fail('Choose a valid date and time.');return n;}
+function list(v:any,allowed:string[]){if(!Array.isArray(v)||v.length>allowed.length||v.some(x=>!allowed.includes(x)))fail('Choose valid options.');return [...new Set(v)];}
+const audit=(u:string,a:string,target:string|null=null,actor=u)=>query('INSERT INTO care_audit(id,user_id,actor_id,action,target_id) VALUES(?,?,?,?,?)',uid(),u,actor,a,target);
+async function owner(table:string,id:any,u:any){const r=await one(`SELECT * FROM ${table} WHERE id=? AND user_id=?`,required(id,100),u.id);if(!r)fail('This private record is unavailable.',404);return r;}
+export async function ingestCare(req:Request,b:any){const token=req.headers.get('authorization')?.match(/^CareDevice ([a-f0-9]{64})$/)?.[1];if(!token)fail('Device authorization required.',401);const d=await one('SELECT d.* FROM care_devices d JOIN users u ON u.id=d.user_id JOIN care_preferences p ON p.user_id=u.id WHERE d.token_hash=? AND d.active=1 AND u.suspended=0',await hash(token));if(!d)fail('Device connection is unavailable.',401);if(!Array.isArray(b.measurements)||b.measurements.length<1||b.measurements.length>100)fail('Send between 1 and 100 measurements.');const permissions=JSON.parse(d.permissions);const q=b.measurements.map((m:any)=>{if(!m||typeof m!=='object'||Array.isArray(m))fail('Invalid measurement.');const metric=metrics[m.kind];if(!metric||!permissions.includes(m.kind)||m.unit!==metric.unit)fail('This measurement type or unit is not permitted.');const value=Number(m.value);if(!Number.isFinite(value)||value<0||value>metric.max)fail('Invalid measurement value.');return query('INSERT INTO care_measurements(id,user_id,device_id,external_id,kind,value,unit,measured_at) SELECT ?,?,?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM care_devices WHERE id=? AND active=1 AND token_hash=?) ON CONFLICT(device_id,external_id) DO NOTHING',uid(),d.user_id,d.id,required(m.id,100),m.kind,value,m.unit,time(m.measuredAt),d.id,d.token_hash);});
+ // The token is checked again inside the write batch so revoking a connection invalidates queued writes.
+ const results=await database().batch([...q,query('UPDATE care_devices SET last_sync=unixepoch() WHERE id=? AND active=1',d.id)]);return {ok:true,received:results.slice(0,-1).reduce((n,r)=>n+(r.meta.changes||0),0)};
+}
+export async function careRoute(u:any,action:string|undefined,b:any,post:boolean){
+ if(u.account_type!=='individual')fail('Silver Care is for individual Silver⁺ accounts. Community Partner accounts cannot access private health records.',403);
+ const prefs=await one('SELECT * FROM care_preferences WHERE user_id=?',u.id);
+ if(!action&&!post){
+  if(!prefs)return {needsSetup:true};
+  const records=await rows('SELECT * FROM care_records WHERE user_id=? ORDER BY occurred_at DESC LIMIT 500',u.id);
+  const measurements=await rows('SELECT m.*,d.name AS device_name FROM care_measurements m JOIN care_devices d ON d.id=m.device_id WHERE m.user_id=? ORDER BY m.measured_at DESC LIMIT 500',u.id);
+  return {preferences:{...prefs,activity:JSON.parse(prefs.activity)},records:records.map(r=>({...r,data:JSON.parse(r.data)})),measurements,devices:await rows('SELECT id,name,provider,permissions,active,last_sync,created_at FROM care_devices WHERE user_id=? ORDER BY created_at DESC',u.id),summaries:await rows('SELECT * FROM care_summaries WHERE user_id=? ORDER BY created_at DESC LIMIT 100',u.id),shares:await rows('SELECT s.id,s.summary_id,s.expires,s.revoked_at,u.name AS recipient_name,u.email AS recipient_email FROM care_shares s JOIN users u ON u.id=s.recipient_id WHERE s.user_id=? ORDER BY s.created_at DESC',u.id),received:await rows('SELECT s.id,s.expires,u.name AS sender_name FROM care_shares s JOIN users u ON u.id=s.user_id WHERE s.recipient_id=? AND s.revoked_at IS NULL AND s.expires>unixepoch()',u.id),audit:await rows('SELECT action,target_id,created_at FROM care_audit WHERE user_id=? ORDER BY created_at DESC LIMIT 30',u.id)};
+ }
+ if(action==='setup'&&post){if(b.consent!==true)fail('Confirm that you want to store your health information in Silver Care.');await database().batch([query('INSERT INTO care_preferences(user_id,consented_at) VALUES(?,unixepoch()) ON CONFLICT(user_id) DO NOTHING',u.id),audit(u.id,'care_setup')]);return {ok:true};}
+ if(!prefs)fail('Complete Silver Care privacy setup first.',428);
+ if(action==='conversations'&&!post)return {conversations:await rows('SELECT id,title,version,updated_at FROM care_conversations WHERE user_id=? ORDER BY updated_at DESC LIMIT 100',u.id)};
+ if(action==='conversation'&&!post){const c=await owner('care_conversations',b.id,u);return {...c,messages:JSON.parse(c.messages)};}
+ if(action==='family'&&!post)return {contacts:await rows('SELECT * FROM care_family WHERE user_id=? ORDER BY name',u.id)};
+ if(action==='shared'&&!post){const s=await one('SELECT snapshot,user_id FROM care_shares WHERE id=? AND recipient_id=? AND revoked_at IS NULL AND expires>unixepoch()',required(b.id,100),u.id);if(!s)fail('This shared summary is unavailable or has expired.',404);await database().batch([audit(s.user_id,'shared_summary_viewed',b.id,u.id)]);return JSON.parse(s.snapshot);}
+ if(!post)fail('Not found.',404);
+ if(action==='chat')return careChat(u,b);
+ if(action==='save-conversation'){
+  const parsed=z.object({id:z.string().max(100).optional(),version:z.number().int().min(1).optional(),consent:z.literal(true),messages:z.array(z.object({role:z.enum(['user','assistant']),content:z.string().trim().min(1).max(5000)}).strict()).min(2).max(12)}).strict().safeParse(b);
+  if(!parsed.success)fail('Confirm private chat storage and send a valid conversation.');const d=parsed.data;
+  if(d.messages.some((m,i)=>m.role!==(i%2===0?'user':'assistant'))||d.messages.length%2||JSON.stringify(d.messages).length>40000)fail('Invalid conversation.');
+  const title=d.messages[0].content.slice(0,80),messages=JSON.stringify(d.messages);
+  if(d.id){await owner('care_conversations',d.id,u);const r=await run('UPDATE care_conversations SET title=?,messages=?,version=version+1,updated_at=unixepoch() WHERE id=? AND user_id=? AND version=?',title,messages,d.id,u.id,d.version||0);if(!r.meta.changes)fail('This chat changed in another tab. Reopen it before saving.',409);return {id:d.id,version:(d.version||0)+1};}
+  const id=uid();const r=await run('INSERT INTO care_conversations(id,user_id,title,messages) SELECT ?,?,?,? WHERE (SELECT COUNT(*) FROM care_conversations WHERE user_id=?)<100',id,u.id,title,messages,u.id);if(!r.meta.changes)fail('You have 100 saved chats. Delete an old chat before saving another.',409);return {id,version:1};
+ }
+ if(action==='delete-conversation'){await owner('care_conversations',b.id,u);await run('DELETE FROM care_conversations WHERE id=? AND user_id=?',b.id,u.id);return {ok:true};}
+ if(action==='family-contact'){
+  const d=z.object({id:z.string().max(100).optional(),version:z.number().int().min(1).optional(),name:z.string().trim().min(1).max(100),relationship:z.string().trim().max(60),phone:z.string().trim().regex(/^\+[1-9][0-9]{6,14}$/)}).strict().safeParse(b);
+  if(!d.success)fail('Add a name and international phone number, such as +852 followed by 8 digits.');const v=d.data;
+  if(v.id){await owner('care_family',v.id,u);const r=await run('UPDATE care_family SET name=?,relationship=?,phone=?,version=version+1 WHERE id=? AND user_id=? AND version=?',v.name,v.relationship,v.phone,v.id,u.id,v.version||0);if(!r.meta.changes)fail('This contact changed. Reload before editing.',409);return {id:v.id};}
+  const id=uid();const r=await run('INSERT INTO care_family(id,user_id,name,relationship,phone) SELECT ?,?,?,?,? WHERE (SELECT COUNT(*) FROM care_family WHERE user_id=?)<30',id,u.id,v.name,v.relationship,v.phone,u.id);if(!r.meta.changes)fail('You can save up to 30 family contacts.');return {id};
+ }
+ if(action==='delete-family-contact'){await owner('care_family',b.id,u);await run('DELETE FROM care_family WHERE id=? AND user_id=?',b.id,u.id);return {ok:true};}
+ if(action==='preferences'){const activity=list(b.activity,activityOptions);const reminder=b.reminderHour===''||b.reminderHour==null?null:whole(b.reminderHour,0,23);await database().batch([query('UPDATE care_preferences SET bank_consent=?,activity=?,notifications=?,reminder_hour=?,updated_at=unixepoch() WHERE user_id=?',b.bankConsent===true?1:0,JSON.stringify(activity),b.notifications===true?1:0,reminder,u.id),audit(u.id,'privacy_preferences_updated')]);return {ok:true};}
+ if(action==='record'){
+  if(b.confirmed!==true)fail('Review and confirm your record before saving.');if(!['symptom','checkin'].includes(b.kind))fail('Choose a record type.');const d=b.data;if(!d||typeof d!=='object'||Array.isArray(d))fail('Add your record.');const data:Record<string,string>={};
+  const keys=b.kind==='symptom'?['description','area','started','frequency','duration','severity','changes','notes']:['feeling','energy','mobility','sleep','discomfort','notes'];for(const k of keys)data[k]=clean(d[k],k==='description'?12000:k==='notes'?4000:500);
+  if(b.kind==='symptom'&&!data.description)fail('Describe what you experienced.');if(!Object.values(data).some(Boolean))fail('Answer at least one question or add a note.');const occurred=time(b.occurredAt);const id=b.id?required(b.id,100):uid();
+  if(b.id){const old=await owner('care_records',id,u);if(old.kind!==b.kind)fail('The record type cannot change.');const r=await run('UPDATE care_records SET data=?,occurred_at=?,version=version+1 WHERE id=? AND user_id=? AND version=?',JSON.stringify(data),occurred,id,u.id,whole(b.version));if(!r.meta.changes)fail('This record changed. Reload it before editing.',409);}else await run('INSERT INTO care_records(id,user_id,kind,occurred_at,data) VALUES(?,?,?,?,?)',id,u.id,b.kind,occurred,JSON.stringify(data));await database().batch([audit(u.id,b.id?'record_updated':'record_saved',id)]);return {id};
+ }
+ if(action==='delete-record'){await owner('care_records',b.id,u);await database().batch([query('DELETE FROM care_records WHERE id=? AND user_id=?',b.id,u.id),audit(u.id,'record_deleted',b.id)]);return {ok:true};}
+ if(action==='summary'){
+  if(b.confirmed!==true)fail('Review and confirm your summary.');const id=b.id?required(b.id,100):uid();const content=required(b.content,30000),title=required(b.title,160),at=b.appointmentAt?time(b.appointmentAt,true):null;
+  if(b.id){await owner('care_summaries',id,u);const r=await run('UPDATE care_summaries SET title=?,content=?,appointment_at=?,version=version+1 WHERE id=? AND user_id=? AND version=?',title,content,at,id,u.id,whole(b.version));if(!r.meta.changes)fail('This summary changed. Reload it before editing.',409);}else await run('INSERT INTO care_summaries(id,user_id,title,content,appointment_at) VALUES(?,?,?,?,?)',id,u.id,title,content,at);await database().batch([audit(u.id,'summary_saved',id)]);return {id};
+ }
+ if(action==='share'){
+  const s=await owner('care_summaries',b.id,u);if(b.confirmed!==true)fail('Confirm the recipient and selected summary.');if(s.version!==whole(b.version))fail('The summary changed. Review it before sharing.',409);
+  const recipient=await one("SELECT id FROM users WHERE lower(email)=? AND suspended=0 AND account_type='individual'",required(b.email,254).toLowerCase());if(!recipient||recipient.id===u.id)fail('Choose another existing individual Silver⁺ account.');const id=uid();await database().batch([query('INSERT INTO care_shares(id,user_id,recipient_id,summary_id,snapshot,expires) VALUES(?,?,?,?,?,unixepoch()+?)',id,u.id,recipient.id,s.id,JSON.stringify({title:s.title,content:s.content,appointment_at:s.appointment_at}),whole(b.days,1,30)*86400),audit(u.id,'summary_shared',id)]);return {id};
+ }
+ if(action==='revoke'){await owner('care_shares',b.id,u);await database().batch([query('UPDATE care_shares SET revoked_at=unixepoch() WHERE id=? AND user_id=?',b.id,u.id),audit(u.id,'sharing_revoked',b.id)]);return {ok:true};}
+ if(action==='delete-summary'){await owner('care_summaries',b.id,u);await database().batch([query('DELETE FROM care_shares WHERE summary_id=? AND user_id=?',b.id,u.id),query('DELETE FROM care_summaries WHERE id=? AND user_id=?',b.id,u.id),audit(u.id,'summary_deleted',b.id)]);return {ok:true};}
+ if(action==='connect'){
+  const permissions=list(b.permissions,Object.keys(metrics));if(!permissions.length)fail('Choose at least one data category.');const id=uid(),token=secret();await database().batch([query("INSERT INTO care_devices(id,user_id,name,provider,token_hash,permissions) VALUES(?,?,?,'silver-adapter',?,?)",id,u.id,required(b.name,100),await hash(token),JSON.stringify(permissions)),audit(u.id,'device_adapter_created',id)]);return {id,token};
+ }
+ if(action==='disconnect'){await owner('care_devices',b.id,u);await database().batch([query('UPDATE care_devices SET active=0,token_hash=NULL WHERE id=? AND user_id=?',b.id,u.id),audit(u.id,'device_disconnected',b.id)]);return {ok:true};}
+ if(action==='device-permissions'){const d=await owner('care_devices',b.id,u);if(!d.active)fail('Reconnect this device to change permissions.');const permissions=list(b.permissions,Object.keys(metrics));const token=secret();await database().batch([query('UPDATE care_devices SET permissions=?,token_hash=? WHERE id=? AND user_id=?',JSON.stringify(permissions),await hash(token),d.id,u.id),audit(u.id,'device_permissions_changed',d.id)]);return {token};}
+ if(action==='erase'){
+  if(b.confirmation!=='DELETE MY CARE DATA')fail('Type DELETE MY CARE DATA to confirm.');await database().batch([query('DELETE FROM care_shares WHERE user_id=? OR recipient_id=?',u.id,u.id),query('DELETE FROM care_measurements WHERE user_id=?',u.id),query('DELETE FROM care_devices WHERE user_id=?',u.id),query('DELETE FROM care_summaries WHERE user_id=?',u.id),query('DELETE FROM care_records WHERE user_id=?',u.id),query('DELETE FROM care_conversations WHERE user_id=?',u.id),query('DELETE FROM care_family WHERE user_id=?',u.id),query('DELETE FROM care_audit WHERE user_id=?',u.id),query('DELETE FROM care_preferences WHERE user_id=?',u.id)]);return {ok:true};
+ }
+ fail('Not found.',404);
+}

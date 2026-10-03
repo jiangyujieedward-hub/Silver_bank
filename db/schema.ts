@@ -3,7 +3,7 @@ import { sql } from 'drizzle-orm';
 const id = () => text('id').primaryKey();
 const created = () => integer('created_at').notNull().default(sql`(unixepoch())`);
 export const users = sqliteTable('users', {
- id:id(), email:text('email').notNull().unique(), name:text('name').notNull(), password:text('password').notNull(), recovery:text('recovery').notNull(),
+ accountType:text('account_type').notNull().default('individual'), id:id(), email:text('email').notNull().unique(), name:text('name').notNull(), password:text('password').notNull(), recovery:text('recovery').notNull(),
  location:text('location').notNull().default(''), phone:text('phone').notNull().default(''), language:text('language').notNull().default('en'), ageBand:text('age_band').notNull().default(''), skills:text('skills').notNull().default(''), preferences:text('preferences').notNull().default(''), image:text('image'),
  role:text('role').notNull().default('member'), suspended:integer('suspended').notNull().default(0), createdAt:created()
 });
@@ -30,3 +30,115 @@ export const matchingPreferences=sqliteTable('matching_preferences',{userId:text
 export const taskInquiryMessages = sqliteTable('task_inquiry_messages', {
  id:id(), taskId:text('task_id').notNull().references(()=>tasks.id), visitorId:text('visitor_id').notNull().references(()=>users.id), senderId:text('sender_id').notNull().references(()=>users.id), content:text('content').notNull(), photo:text('photo'), createdAt:created()
 }, t=>[index('inquiry_thread').on(t.taskId,t.visitorId,t.createdAt)]);
+
+export const identity_verifications=sqliteTable('identity_verifications',{
+ user_id:text('user_id').primaryKey() .references(()=>users.id),
+ legal_name:text('legal_name').notNull().default(sql`''`),
+ birth_date:text('birth_date'),
+ status:text('status').notNull().default(sql`'incomplete'`),
+ age_eligible:integer('age_eligible').notNull().default(sql`0`),
+ identity_key:text('identity_key').unique(),
+ duplicate_status:text('duplicate_status').notNull().default(sql`'pending'`),
+ method:text('method'),
+ evidence_reference:text('evidence_reference'),
+ reviewer_id:text('reviewer_id') .references(()=>users.id),
+ verified_at:integer('verified_at'),
+ feedback:text('feedback').notNull().default(sql`''`),
+ version:integer('version').notNull().default(sql`0`)
+});
+
+export const organizations=sqliteTable('organizations',{
+ id:text('id').primaryKey(),
+ legal_name:text('legal_name').notNull(),
+ public_name:text('public_name').notNull().default(sql`''`),
+ jurisdiction:text('jurisdiction').notNull(),
+ entity_type:text('entity_type').notNull(),
+ registration_id:text('registration_id').notNull(),
+ registered_address:text('registered_address').notNull(),
+ website:text('website').notNull().default(sql`''`),
+ contact_email:text('contact_email').notNull(),
+ contact_phone:text('contact_phone').notNull(),
+ mission:text('mission').notNull(),
+ representative_name:text('representative_name').notNull(),
+ representative_role:text('representative_role').notNull(),
+ representative_email:text('representative_email').notNull(),
+ status:text('status').notNull().default(sql`'submitted'`),
+ registry_checked:integer('registry_checked').notNull().default(sql`0`),
+ representative_checked:integer('representative_checked').notNull().default(sql`0`),
+ activity_checked:integer('activity_checked').notNull().default(sql`0`),
+ evidence_reference:text('evidence_reference').notNull().default(sql`''`),
+ feedback:text('feedback').notNull().default(sql`''`),
+ reviewer_id:text('reviewer_id') .references(()=>users.id),
+ verified_at:integer('verified_at'),
+ review_due:integer('review_due'),
+ version:integer('version').notNull().default(sql`0`),
+ created_at:integer('created_at').notNull().default(sql`unixepoch()`)
+},t=>[uniqueIndex('organization_identity').on(t.jurisdiction,t.registration_id)]);
+
+export const organization_members=sqliteTable('organization_members',{
+ id:text('id').primaryKey(),
+ organization_id:text('organization_id').notNull() .references(()=>organizations.id),
+ user_id:text('user_id').notNull() .references(()=>users.id),
+ role:text('role').notNull(),
+ active:integer('active').notNull().default(sql`1`)
+},t=>[uniqueIndex('organization_member_once').on(t.organization_id,t.user_id),index('organization_member_user').on(t.user_id,t.active)]);
+
+export const organization_invites=sqliteTable('organization_invites',{
+ id:text('id').primaryKey(),
+ organization_id:text('organization_id').notNull() .references(()=>organizations.id),
+ email:text('email').notNull(),
+ role:text('role').notNull(),
+ expires:integer('expires').notNull(),
+ invited_by:text('invited_by').notNull() .references(()=>users.id),
+ accepted_by:text('accepted_by') .references(()=>users.id)
+});
+
+export const verification_messages=sqliteTable('verification_messages',{
+ id:text('id').primaryKey(),
+ user_id:text('user_id').notNull() .references(()=>users.id),
+ organization_id:text('organization_id') .references(()=>organizations.id),
+ sender_id:text('sender_id').notNull() .references(()=>users.id),
+ content:text('content').notNull(),
+ created_at:integer('created_at').notNull().default(sql`unixepoch()`)
+},t=>[index('verification_message_user').on(t.user_id,t.created_at),index('verification_message_org').on(t.organization_id,t.created_at)]);
+
+export const verification_policies=sqliteTable('verification_policies',{
+ jurisdiction:text('jurisdiction').primaryKey(),
+ identifier_label:text('identifier_label').notNull(),
+ documents:text('documents').notNull(),
+ activity_required:integer('activity_required').notNull().default(sql`0`)
+});
+
+export const partnerPrograms=sqliteTable('partner_programs',{
+ id:id(),organizationId:text('organization_id').notNull().references(()=>organizations.id),kind:text('kind').notNull(),title:text('title').notNull(),description:text('description').notNull(),status:text('status').notNull().default('draft'),categoryId:text('category_id').references(()=>categories.id),location:text('location').notNull(),requestedAt:integer('requested_at'),duration:integer('duration').notNull().default(3600),capacity:integer('capacity').notNull().default(20),requirements:text('requirements').notNull().default(''),materials:text('materials').notNull().default(''),modules:text('modules').notNull().default(''),completion:text('completion').notNull().default(''),badge:text('badge').notNull().default(''),validDays:integer('valid_days'),requiredTrainingId:text('required_training_id'),relatedProgramId:text('related_program_id'),skills:text('skills').notNull().default(''),budget:integer('budget').notNull().default(0),version:integer('version').notNull().default(0),createdBy:text('created_by').notNull().references(()=>users.id),createdAt:created()
+},t=>[index('partner_program_org').on(t.organizationId,t.status)]);
+export const partnerEnrollments=sqliteTable('partner_enrollments',{
+ id:id(),programId:text('program_id').notNull().references(()=>partnerPrograms.id),userId:text('user_id').notNull().references(()=>users.id),role:text('role').notNull().default('participant'),status:text('status').notNull().default('enrolled'),progress:text('progress').notNull().default(''),reviewNote:text('review_note').notNull().default(''),reviewerId:text('reviewer_id').references(()=>users.id),completedAt:integer('completed_at'),createdAt:created()
+},t=>[uniqueIndex('partner_enrollment_once').on(t.programId,t.userId),index('partner_enrollment_user').on(t.userId)]);
+export const partnerBadges=sqliteTable('partner_badges',{
+ id:id(),programId:text('program_id').notNull().references(()=>partnerPrograms.id),userId:text('user_id').notNull().references(()=>users.id),label:text('label').notNull(),issuedBy:text('issued_by').notNull().references(()=>users.id),expiresAt:integer('expires_at'),revokedAt:integer('revoked_at'),reason:text('reason').notNull(),createdAt:created()
+},t=>[uniqueIndex('partner_badge_once').on(t.programId,t.userId)]);
+export const partnerTaskLinks=sqliteTable('partner_task_links',{
+ taskId:text('task_id').primaryKey().references(()=>tasks.id),programId:text('program_id').notNull().references(()=>partnerPrograms.id),requiredTrainingId:text('required_training_id').references(()=>partnerPrograms.id)
+},t=>[index('partner_task_program').on(t.programId)]);
+export const partnerSupport=sqliteTable('partner_support',{
+ id:id(),programId:text('program_id').notNull().references(()=>partnerPrograms.id),userId:text('user_id').notNull().references(()=>users.id),amount:integer('amount').notNull(),reason:text('reason').notNull(),status:text('status').notNull().default('pending'),reviewNote:text('review_note').notNull().default(''),reviewerId:text('reviewer_id').references(()=>users.id),ledgerId:text('ledger_id').unique(),createdAt:created()
+},t=>[uniqueIndex('partner_support_once').on(t.programId,t.userId)]);
+export const partnerMatches=sqliteTable('partner_matches',{
+ id:id(),programId:text('program_id').notNull().references(()=>partnerPrograms.id),sharerId:text('sharer_id').notNull().references(()=>users.id),learnerId:text('learner_id').notNull().references(()=>users.id),status:text('status').notNull().default('matched'),sharerConfirmed:integer('sharer_confirmed').notNull().default(0),learnerConfirmed:integer('learner_confirmed').notNull().default(0),taskId:text('task_id').references(()=>tasks.id),createdAt:created()
+},t=>[uniqueIndex('partner_match_once').on(t.programId,t.sharerId,t.learnerId)]);
+export const partnerSupportUsage=sqliteTable('partner_support_usage',{
+ id:id(),supportId:text('support_id').notNull().references(()=>partnerSupport.id),ledgerId:text('ledger_id').notNull().references(()=>ledger.id),amount:integer('amount').notNull()
+},t=>[uniqueIndex('partner_usage_once').on(t.supportId,t.ledgerId)]);
+
+// Silver Care is owner-scoped and intentionally separate from public profiles.
+export const carePreferences=sqliteTable('care_preferences',{userId:text('user_id').primaryKey().references(()=>users.id),consentedAt:integer('consented_at').notNull(),bankConsent:integer('bank_consent').notNull().default(0),activity:text('activity').notNull().default('[]'),notifications:integer('notifications').notNull().default(1),reminderHour:integer('reminder_hour'),updatedAt:integer('updated_at').notNull().default(sql`(unixepoch())`)});
+export const careRecords=sqliteTable('care_records',{id:id(),userId:text('user_id').notNull().references(()=>users.id),kind:text('kind').notNull(),occurredAt:integer('occurred_at').notNull(),data:text('data').notNull(),version:integer('version').notNull().default(1),createdAt:created()},t=>[index('care_records_owner').on(t.userId,t.occurredAt)]);
+export const careDevices=sqliteTable('care_devices',{id:id(),userId:text('user_id').notNull().references(()=>users.id),name:text('name').notNull(),provider:text('provider').notNull(),tokenHash:text('token_hash'),permissions:text('permissions').notNull().default('[]'),active:integer('active').notNull().default(1),lastSync:integer('last_sync'),createdAt:created()},t=>[index('care_device_owner').on(t.userId),uniqueIndex('care_device_token').on(t.tokenHash)]);
+export const careMeasurements=sqliteTable('care_measurements',{id:id(),userId:text('user_id').notNull().references(()=>users.id),deviceId:text('device_id').notNull().references(()=>careDevices.id),externalId:text('external_id').notNull(),kind:text('kind').notNull(),value:integer('value').notNull(),unit:text('unit').notNull(),measuredAt:integer('measured_at').notNull(),createdAt:created()},t=>[index('care_measure_owner').on(t.userId,t.measuredAt),uniqueIndex('care_measure_once').on(t.deviceId,t.externalId)]);
+export const careSummaries=sqliteTable('care_summaries',{id:id(),userId:text('user_id').notNull().references(()=>users.id),title:text('title').notNull(),content:text('content').notNull(),appointmentAt:integer('appointment_at'),version:integer('version').notNull().default(1),createdAt:created()},t=>[index('care_summary_owner').on(t.userId)]);
+export const careShares=sqliteTable('care_shares',{id:id(),userId:text('user_id').notNull().references(()=>users.id),recipientId:text('recipient_id').notNull().references(()=>users.id),summaryId:text('summary_id').notNull().references(()=>careSummaries.id),snapshot:text('snapshot').notNull(),expires:integer('expires').notNull(),revokedAt:integer('revoked_at'),createdAt:created()},t=>[index('care_share_recipient').on(t.recipientId,t.expires)]);
+export const careAudit=sqliteTable('care_audit',{id:id(),userId:text('user_id').notNull().references(()=>users.id),actorId:text('actor_id').notNull().references(()=>users.id),action:text('action').notNull(),targetId:text('target_id'),createdAt:created()},t=>[index('care_audit_owner').on(t.userId,t.createdAt)]);
+
+export const careConversations=sqliteTable('care_conversations',{id:id(),userId:text('user_id').notNull().references(()=>users.id),title:text('title').notNull(),messages:text('messages').notNull().default('[]'),version:integer('version').notNull().default(1),createdAt:created(),updatedAt:integer('updated_at').notNull().default(sql`(unixepoch())`)},t=>[index('care_conversation_owner').on(t.userId,t.updatedAt)]);
+export const careFamily=sqliteTable('care_family',{id:id(),userId:text('user_id').notNull().references(()=>users.id),name:text('name').notNull(),relationship:text('relationship').notNull().default(''),phone:text('phone').notNull(),version:integer('version').notNull().default(1),createdAt:created()},t=>[index('care_family_owner').on(t.userId)]);

@@ -26,9 +26,6 @@ CREATE TRIGGER audit_no_update BEFORE UPDATE ON admin_actions BEGIN SELECT RAISE
 --> statement-breakpoint
 CREATE TRIGGER audit_no_delete BEFORE DELETE ON admin_actions BEGIN SELECT RAISE(ABORT,'immutable_audit'); END;
 --> statement-breakpoint
-CREATE TRIGGER onboard AFTER INSERT ON users WHEN CAST((SELECT value FROM settings WHERE id='onboarding_seconds') AS INTEGER)>0 BEGIN
- INSERT INTO ledger(id,destination_id,amount,type,metadata) VALUES(lower(hex(randomblob(16))),NEW.id,CAST((SELECT value FROM settings WHERE id='onboarding_seconds') AS INTEGER),'onboarding','Community onboarding policy at registration');
-END;
 --> statement-breakpoint
 CREATE TRIGGER task_validate BEFORE INSERT ON tasks BEGIN
  SELECT RAISE(ABORT,'invalid_task') WHERE NEW.status<>'open' OR NEW.helper_id IS NOT NULL OR NEW.estimated_seconds<=0 OR typeof(NEW.estimated_seconds)<>'integer' OR NEW.remote NOT IN (0,1);
@@ -81,3 +78,50 @@ END;
 CREATE TRIGGER task_events_no_update BEFORE UPDATE ON task_events BEGIN SELECT RAISE(ABORT,'immutable_task_history'); END;
 --> statement-breakpoint
 CREATE TRIGGER task_events_no_delete BEFORE DELETE ON task_events BEGIN SELECT RAISE(ABORT,'immutable_task_history'); END;
+
+--> statement-breakpoint
+CREATE TRIGGER verified_starter AFTER UPDATE OF status ON identity_verifications
+ WHEN NEW.status='verified' AND OLD.status<>'verified' AND NEW.age_eligible=1 AND NEW.duplicate_status='clear'
+ AND (SELECT account_type FROM users WHERE id=NEW.user_id)='individual'
+ AND CAST((SELECT value FROM settings WHERE id='onboarding_seconds') AS INTEGER)>0
+ AND NOT EXISTS(SELECT 1 FROM ledger WHERE destination_id=NEW.user_id AND type='onboarding')
+ BEGIN INSERT INTO ledger(id,destination_id,amount,type,metadata) VALUES(lower(hex(randomblob(16))),NEW.user_id,CAST((SELECT value FROM settings WHERE id='onboarding_seconds') AS INTEGER),'onboarding','One-time credit after manual identity verification'); END;
+--> statement-breakpoint
+CREATE TRIGGER verification_approval_guard BEFORE UPDATE ON identity_verifications
+ WHEN NEW.status='verified'
+ BEGIN SELECT RAISE(ABORT,'verification_checks_required') WHERE NEW.age_eligible<>1 OR NEW.duplicate_status<>'clear' OR NEW.identity_key IS NULL OR NEW.reviewer_id IS NULL OR NEW.reviewer_id=NEW.user_id OR NEW.verified_at IS NULL OR NEW.birth_date IS NULL OR NEW.evidence_reference IS NULL;
+ SELECT RAISE(ABORT,'reviewer_required') WHERE NOT EXISTS(SELECT 1 FROM users WHERE id=NEW.reviewer_id AND role='admin' AND suspended=0); END;
+--> statement-breakpoint
+CREATE TRIGGER organization_approval_guard BEFORE UPDATE ON organizations WHEN NEW.status='verified'
+ BEGIN SELECT RAISE(ABORT,'organization_checks_required') WHERE NEW.registry_checked<>1 OR NEW.representative_checked<>1 OR NEW.reviewer_id IS NULL OR NEW.review_due IS NULL OR NEW.verified_at IS NULL OR length(NEW.evidence_reference)=0;
+ SELECT RAISE(ABORT,'reviewer_required') WHERE NOT EXISTS(SELECT 1 FROM users WHERE id=NEW.reviewer_id AND role='admin' AND suspended=0) OR EXISTS(SELECT 1 FROM organization_members WHERE organization_id=NEW.id AND user_id=NEW.reviewer_id); END;
+--> statement-breakpoint
+CREATE TRIGGER verified_task_request BEFORE INSERT ON tasks
+ BEGIN SELECT RAISE(ABORT,'identity_verification_required') WHERE NOT EXISTS(SELECT 1 FROM users u LEFT JOIN identity_verifications v ON v.user_id=u.id WHERE u.id=NEW.requester_id AND (u.role='admin' OR (u.account_type='individual' AND v.status='verified' AND v.age_eligible=1 AND v.duplicate_status='clear') OR (u.account_type='organization' AND EXISTS(SELECT 1 FROM organizations o JOIN organization_members m ON m.organization_id=o.id WHERE m.user_id=u.id AND m.active=1 AND m.role IN ('owner','program_manager') AND o.status='verified' AND o.review_due>unixepoch())))); END;
+--> statement-breakpoint
+CREATE TRIGGER verified_task_accept BEFORE UPDATE OF helper_id ON tasks WHEN NEW.helper_id IS NOT NULL AND OLD.helper_id IS NULL
+ BEGIN SELECT RAISE(ABORT,'identity_verification_required') WHERE NOT EXISTS(SELECT 1 FROM users u LEFT JOIN identity_verifications v ON v.user_id=u.id WHERE u.id=NEW.helper_id AND (u.role='admin' OR (u.account_type='individual' AND v.status='verified' AND v.age_eligible=1 AND v.duplicate_status='clear') OR (u.account_type='organization' AND EXISTS(SELECT 1 FROM organizations o JOIN organization_members m ON m.organization_id=o.id WHERE m.user_id=u.id AND m.active=1 AND m.role IN ('owner','program_manager') AND o.status='verified' AND o.review_due>unixepoch())))); END;
+--> statement-breakpoint
+CREATE TRIGGER verification_type_immutable BEFORE UPDATE OF account_type ON users WHEN OLD.account_type<>NEW.account_type BEGIN SELECT RAISE(ABORT,'account_type_immutable'); END;
+--> statement-breakpoint
+CREATE TRIGGER pending_identity_insert BEFORE INSERT ON identity_verifications WHEN NEW.status='verified' BEGIN SELECT RAISE(ABORT,'review_existing_application_first'); END;
+--> statement-breakpoint
+CREATE TRIGGER pending_organization_insert BEFORE INSERT ON organizations WHEN NEW.status='verified' BEGIN SELECT RAISE(ABORT,'review_existing_application_first'); END;
+--> statement-breakpoint
+CREATE TRIGGER verified_onboarding_only BEFORE INSERT ON ledger WHEN NEW.type='onboarding' BEGIN SELECT RAISE(ABORT,'identity_verification_required') WHERE NOT EXISTS(SELECT 1 FROM identity_verifications v JOIN users u ON u.id=v.user_id WHERE v.user_id=NEW.destination_id AND u.account_type='individual' AND v.status='verified' AND v.age_eligible=1 AND v.duplicate_status='clear'); END;
+--> statement-breakpoint
+CREATE TRIGGER identity_review_requested AFTER INSERT ON identity_verifications BEGIN
+ INSERT INTO notifications(id,user_id,text) SELECT lower(hex(randomblob(16))),id,'A member has requested manual verification.' FROM users WHERE role='admin' AND suspended=0;
+END;
+--> statement-breakpoint
+CREATE TRIGGER organization_review_requested AFTER INSERT ON organizations BEGIN
+ INSERT INTO notifications(id,user_id,text) SELECT lower(hex(randomblob(16))),id,'A Community Partner application is ready for review.' FROM users WHERE role='admin' AND suspended=0;
+END;
+--> statement-breakpoint
+CREATE TRIGGER identity_review_updated AFTER UPDATE OF status ON identity_verifications WHEN OLD.status<>NEW.status BEGIN
+ INSERT INTO notifications(id,user_id,text) VALUES(lower(hex(randomblob(16))),NEW.user_id,'Your verification status has changed. Open verification from your profile.');
+END;
+--> statement-breakpoint
+CREATE TRIGGER organization_review_updated AFTER UPDATE OF status ON organizations WHEN OLD.status<>NEW.status BEGIN
+ INSERT INTO notifications(id,user_id,text) SELECT lower(hex(randomblob(16))),user_id,'Your Community Partner verification status has changed. Open verification from your profile.' FROM organization_members WHERE organization_id=NEW.id AND active=1;
+END;

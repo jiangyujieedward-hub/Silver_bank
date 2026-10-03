@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react';
 import {Button} from './ui/button';
-import {Input} from './ui/input';
+import {Input} from './silver/input';
 import {tr,getLanguage} from '@/lib/i18n';
 const escapeCalendar=(s:string)=>s.replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');
 const utc=(s:number)=>new Date(s*1000).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');

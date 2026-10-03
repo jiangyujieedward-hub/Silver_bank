@@ -1,31 +1,3 @@
-# Silver Bank setup status
-
-This repository contains the current web, iOS and Android source. It does not contain live user records, passwords, API keys or signing credentials.
-
-**Current backend:** Cloudflare D1. **Supabase migration:** pending; the project URL alone does not connect the database. Existing records must be backed up and migrated after duplicate phone numbers are corrected. Phone/password Supabase login and App Store readiness work are not complete.
-
-## Run locally
-
-1. Install Node.js 22.13 or later and run `npm ci`.
-2. Create an ignored `.dev.vars` with `ADMIN_SETUP_KEY` set to your own random secret. Add `GROQ_API_KEY` only if using a Groq Free-plan account.
-3. Run `npm run build`.
-4. Apply **every** SQL file in `drizzle/`, in filename order, once per fresh database. Use the migration command below with each filename.
-5. Run `npm run dev`, then open http://localhost:5173. Complete administrator setup for a new local database.
-
-Do not run test fixtures against member data. GitHub stores the source; it does not automatically host the app or its database. No paid automation or deployment is enabled by this repository.
-
-## Mobile
-
-Run `npm run mobile:build` followed by `npm run mobile:sync`. Open `ios/App/App.xcodeproj` in Xcode or `android/` in Android Studio. Native apps currently use the hosted API. For a local simulator preview, build with `VITE_TIMEBANK_API_URL=http://localhost:5173`. Keep simulator signing enabled for Keychain access. Real-device builds require your signing configuration and a reachable HTTPS backend.
-
-## Release work still required
-
-- Supabase migration and phone/password login, without SMS verification or paid services.
-- In-app account deletion, user blocking/reporting, and final privacy/support information.
-- Production backend update, physical-device testing, and store submission review.
-
----
-
 # Silver Bank
 
 A mobile-first, persistent community Time Bank. React/Vinext frontend; Cloudflare Worker API; D1 SQLite database with atomic triggers, durable sessions, ledger and audit records. No product seed users or task data.
@@ -39,9 +11,9 @@ Open the deployed application. The first administrator uses the one-time `ADMIN_
 - Authoritative amounts are integer seconds. All tasks have the same time rate, with no cash conversion.
 - Posting reserves estimated time atomically. Available balance is ledger total less held time. Reservation does not pay a helper.
 - Only another member can accept an open task; a conditional database update prevents simultaneous claims.
-- Both people agree to work together first. The task remains scheduled until the requested time; both then confirm readiness before the clock starts.
+- Both people confirm readiness. The second confirmation records the database start timestamp.
 - Either participant finishes; actual time is the server finish minus start, with a minimum one second. The other participant confirms settlement.
-- Posting is limited to available credit. Each account receives starter credit once (currently three hours), and earns more by helping others. Posting reserves the estimated duration; cancellation releases it. Database checks enforce the credit limit.
+- Actual duration can exceed the estimate. Members may post requests and settle with a zero or negative balance. Posting subtracts the estimate from available time; completion replaces that reservation with the actual service debit. Negative balances represent time to contribute back.
 - Completion releases the reservation and transfers equal time in the same SQLite statement transaction. A unique task/type index and final-state guard prevent duplicate settlement.
 - Disputes freeze the task without paying. Administrators can cancel/release or settle an already finished disputed task. Every administrative action needs an audit reason. Adjustments append ledger records; no balance overwrites.
 - Reviews are one per participant per completed task. Task messages are participant-only. Suspensions revoke sessions and block sign-in.
@@ -135,3 +107,13 @@ The supplied Google Sans variable fonts are bundled locally as WOFF2 with their 
 - Available task cards use the React Bits JS-CSS CircularGallery implementation, adapted for real task content. List view is available, and reduced-motion preferences automatically use the list.
 - Local development detects the Mac's configured HTTPS proxy (or `HTTPS_PROXY`) for Groq. A randomly authenticated, loopback-only transport keeps provider credentials server-side and preserves the API's consent and usage checks. Production builds do not contain this development transport configuration. Groq remains the only provider; no paid fallback is configured.
 - Verified the AI form with a synthetic description, interface rendering in five languages, and HTTP registration/profile persistence/task settlement against a separate test database. This review has not been published.
+
+## Preview and Sites publishing
+
+Run `npm run dev` for development. Run `npm run build` then `npm start` for a production-build preview at http://localhost:5173. `PORT` and `HOST` may override the preview address; `npm start` builds automatically if the production output is missing.
+
+Run `npm run sites:package` to build and create `.sites-runtime/silver-bank-deploy.tar.gz`. This project-local script replaces dependence on an absent plugin packaging script. Publish the exact committed source to the existing Sites source repository, save a Sites version using that commit and archive, then deploy that saved version. Local secrets, databases and account records are excluded from the archive.
+
+## Individual and NGO verification
+
+Separate registration paths and free manual verification are described in [Verification operations](docs/VERIFICATION.md). Existing navigation, histories and active tasks remain available while new participation requires approval.

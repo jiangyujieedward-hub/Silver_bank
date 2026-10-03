@@ -27,6 +27,7 @@ export async function careRoute(u:any,action:string|undefined,b:any,post:boolean
  if(action==='family'&&!post)return {contacts:await rows('SELECT * FROM care_family WHERE user_id=? ORDER BY name',u.id)};
  if(action==='shared'&&!post){const s=await one('SELECT snapshot,user_id FROM care_shares WHERE id=? AND recipient_id=? AND revoked_at IS NULL AND expires>unixepoch()',required(b.id,100),u.id);if(!s)fail('This shared summary is unavailable or has expired.',404);await database().batch([audit(s.user_id,'shared_summary_viewed',b.id,u.id)]);return JSON.parse(s.snapshot);}
  if(!post)fail('Not found.',404);
+ if(action==='ai-consent'){if(b.consent!==true||typeof b.autoSavePhysical!=='boolean')fail('Confirm AI processing and choose your note preference.');await database().batch([query('UPDATE care_preferences SET ai_consented_at=COALESCE(ai_consented_at,unixepoch()),ai_auto_save=?,updated_at=unixepoch() WHERE user_id=?',b.autoSavePhysical?1:0,u.id),audit(u.id,'ai_preferences_updated')]);return {ok:true};}
  if(action==='chat')return careChat(u,b);
  if(action==='save-conversation'){
   const parsed=z.object({id:z.string().max(100).optional(),version:z.number().int().min(1).optional(),consent:z.literal(true),messages:z.array(z.object({role:z.enum(['user','assistant']),content:z.string().trim().min(1).max(5000)}).strict()).min(2).max(12)}).strict().safeParse(b);

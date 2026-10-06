@@ -38,3 +38,5 @@
 @media(prefers-reduced-motion:reduce){.sp-care-flip .flip-card__face{transition:none!important}}
 .sp-story-solution .sp-bank-gallery span{margin-top:0;color:#fff}.sp-story-solution .sp-bank-gallery .ag-panel__label{display:flex}.sp-story-solution .sp-bank-gallery .ag-panel__text{color:#fff;white-space:normal;line-height:1.3}.sp-story-solution .sp-bank-gallery .ag-panel__media{margin:0}.sp-story-solution .sp-bank-gallery .ag-panel__frame{margin:0}
 @media(max-width:520px){.silver-landing .sp-bank-gallery{height:520px!important}.sp-bank-gallery .ag-panel__media{width:100%!important;height:100%!important}.sp-bank-gallery .ag-panel__label{padding:0;left:16px;right:16px;bottom:16px}}
+
+.silver-landing .sp-product-copy>.sp-product-label{font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;font-weight:650;letter-spacing:-.035em;gap:16px}.silver-landing .sp-product-label .sp-bank-logo{width:72px;height:72px;object-fit:contain;flex-shrink:0;border-radius:14px}@media(max-width:480px){.silver-landing .sp-product-label .sp-bank-logo{width:56px;height:56px}}

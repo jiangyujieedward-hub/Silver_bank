@@ -1,0 +1,80 @@
+{
+  "garden": {
+    "src": "/images/community/garden.jpg",
+    "alt": "An older woman tending flowers",
+    "source": "https://www.pexels.com/photo/photo-of-an-elderly-woman-gardening-10049368/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "pottery": {
+    "src": "/images/community/pottery.jpg",
+    "alt": "People learning pottery together",
+    "source": "https://www.pexels.com/photo/people-doing-pottery-6023597/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "phone": {
+    "src": "/images/community/phone.jpg",
+    "alt": "An older woman making a video call",
+    "source": "https://www.pexels.com/photo/elderly-woman-having-a-video-call-on-her-smartphone-6414614/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "basketball": {
+    "src": "/images/community/basketball.jpg",
+    "alt": "Friends playing basketball",
+    "source": "https://www.pexels.com/photo/friends-playing-basketball-8980056/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "skate": {
+    "src": "/images/community/skate.jpg",
+    "alt": "A skateboarder at a skate park",
+    "source": "https://www.pexels.com/photo/man-riding-a-skateboard-on-a-skatepark-7335116/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "hike": {
+    "src": "/images/community/hike.jpg",
+    "alt": "A group hiking in the mountains",
+    "source": "https://www.pexels.com/photo/group-of-people-hiking-in-mountains-17647094/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "computer": {
+    "src": "/images/community/computer.jpg",
+    "alt": "Students using computers",
+    "source": "https://www.pexels.com/photo/students-working-on-computers-5539293/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "exercise": {
+    "src": "/images/community/exercise.jpg",
+    "alt": "Older women exercising together",
+    "source": "https://www.pexels.com/photo/elderly-women-exercising-21405570/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "reading": {
+    "src": "/images/community/reading.jpg",
+    "alt": "A person reading a book",
+    "source": "https://www.pexels.com/photo/person-reading-a-book-6941666/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "sewing": {
+    "src": "/images/community/sewing.jpg",
+    "alt": "Hands guiding fabric through a sewing machine",
+    "source": "https://www.pexels.com/photo/a-person-s-hands-using-a-sewing-machine-6358808/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "cooking": {
+    "src": "/images/community/cooking.jpg",
+    "alt": "An older adult preparing fresh food",
+    "source": "https://www.pexels.com/photo/elderly-man-preparing-food-8805508/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "music": {
+    "src": "/images/community/music.jpg",
+    "alt": "Hands playing a guitar",
+    "source": "https://www.pexels.com/photo/person-playing-guitar-130991/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "bicycle": {
+    "src": "/images/community/bicycle.jpg",
+    "alt": "A person repairing a bicycle wheel",
+    "source": "https://www.pexels.com/photo/person-repairing-a-bicycle-wheel-7153021/",
+    "license": "https://www.pexels.com/license/"
+  }
+}
